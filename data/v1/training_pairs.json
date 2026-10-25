@@ -1,0 +1,110 @@
+{
+    "documents": [
+      {
+        "id": "d1",
+        "text": "Deploy a Spring Boot application to AWS using containers"
+      },
+      {
+        "id": "d2",
+        "text": "Train a neural network using backpropagation and gradient descent"
+      },
+      {
+        "id": "d3",
+        "text": "Store text embeddings in a vector database for semantic search"
+      },
+      {
+        "id": "d4",
+        "text": "Improve application response time using caching"
+      },
+      {
+        "id": "d5",
+        "text": "Secure REST APIs using OAuth and access tokens"
+      },
+      {
+        "id": "d6",
+        "text": "Monitor microservices with logs metrics and distributed tracing"
+      },
+      {
+        "id": "d7",
+        "text": "Use Docker containers to package and deploy applications"
+      },
+      {
+        "id": "d8",
+        "text": "Optimize database queries using indexes"
+      }
+    ],
+    "training_pairs": [
+      {
+        "query": "how do I train a machine learning model",
+        "document_id": "d2"
+      },
+      {
+        "query": "learn about neural network training",
+        "document_id": "d2"
+      },
+      {
+        "query": "how does backpropagation work",
+        "document_id": "d2"
+      },
+      {
+        "query": "find similar text using embeddings",
+        "document_id": "d3"
+      },
+      {
+        "query": "build a semantic document search engine",
+        "document_id": "d3"
+      },
+      {
+        "query": "store vectors for text retrieval",
+        "document_id": "d3"
+      },
+      {
+        "query": "deploy a Java application on AWS",
+        "document_id": "d1"
+      },
+      {
+        "query": "run Spring Boot in the cloud",
+        "document_id": "d1"
+      },
+      {
+        "query": "deploy software using Docker",
+        "document_id": "d7"
+      },
+      {
+        "query": "package applications in containers",
+        "document_id": "d7"
+      },
+      {
+        "query": "make my application faster with a cache",
+        "document_id": "d4"
+      },
+      {
+        "query": "reduce API response time",
+        "document_id": "d4"
+      },
+      {
+        "query": "protect an API with authentication",
+        "document_id": "d5"
+      },
+      {
+        "query": "use OAuth tokens for API security",
+        "document_id": "d5"
+      },
+      {
+        "query": "monitor services using logs and traces",
+        "document_id": "d6"
+      },
+      {
+        "query": "observe distributed microservices",
+        "document_id": "d6"
+      },
+      {
+        "query": "speed up SQL queries with indexes",
+        "document_id": "d8"
+      },
+      {
+        "query": "improve database query performance",
+        "document_id": "d8"
+      }
+    ]
+  }
