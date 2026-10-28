@@ -1,0 +1,22 @@
+{
+  "dataset_version": "v3",
+  "synthetic": true,
+  "documents": 100,
+  "train_pairs": 800,
+  "validation_pairs": 200,
+  "test_pairs": 200,
+  "categories": [
+    "aws",
+    "containers",
+    "database",
+    "java",
+    "messaging",
+    "microservices",
+    "observability",
+    "performance",
+    "security",
+    "spring"
+  ],
+  "document_text_policy": "title + text",
+  "query_policy": "topic-specific query variants with disjoint phrasing by split"
+}

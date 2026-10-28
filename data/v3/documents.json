@@ -1,0 +1,1471 @@
+{
+  "documents": [
+    {
+      "id": "java-001",
+      "category": "java",
+      "title": "Collections Framework",
+      "text": "Java's Collections Framework provides interfaces and implementations for storing and processing groups of objects. List preserves positional order and permits duplicates; Set models uniqueness; Queue models elements awaiting processing; Map associates keys with values but is not a subtype of Collection. Choose ArrayList for indexed reads and append-heavy workloads, HashSet for membership checks, and TreeMap when sorted keys are required. Compare algorithmic complexity, iteration order, null handling, and memory overhead rather than selecting a collection by habit. Use immutable copies or unmodifiable views when callers must not mutate shared state, and avoid modifying a collection structurally during iteration unless the iterator explicitly supports it. For concurrent access, distinguish thread-safe collections from ordinary ArrayList and HashMap.",
+      "keywords": [
+        "ArrayList",
+        "LinkedList",
+        "HashSet",
+        "TreeSet",
+        "HashMap",
+        "iteration",
+        "ordering",
+        "uniqueness",
+        "complexity"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-002",
+      "category": "java",
+      "title": "HashMap and hashing",
+      "text": "HashMap stores key-value mappings in hash buckets. hashCode helps select a bucket and equals determines whether keys are logically equal; equal keys must have equal hash codes. Collisions are normal, so performance depends on how keys distribute and how collisions are handled. The map resizes as entries grow beyond its capacity and load-factor threshold. A key whose fields used by equals or hashCode change after insertion can become difficult to retrieve, so keys should normally be immutable. HashMap is not safe for unsynchronized concurrent mutation, and it does not promise iteration order. When debugging missing lookups or slow operations, inspect key equality, hash distribution, resizing, and accidental use of mutable keys.",
+      "keywords": [
+        "hashCode",
+        "equals",
+        "buckets",
+        "collisions",
+        "resizing",
+        "load factor",
+        "mutable keys"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-003",
+      "category": "java",
+      "title": "Exception handling",
+      "text": "Java exception handling separates normal control flow from failure paths. Catch an exception only when the code can recover, add useful context, or translate it at a boundary; otherwise let it propagate. Checked exceptions require declaration or handling, while RuntimeException subclasses represent unchecked failures. Preserve the original cause when wrapping exceptions so logs retain diagnostic information. Use try-with-resources for AutoCloseable resources such as streams and JDBC connections; it closes them even when an exception occurs. Avoid swallowing exceptions, catching Throwable broadly, or using exceptions for routine branching. At service boundaries, map failures to stable API responses without exposing stack traces or secrets.",
+      "keywords": [
+        "try catch finally",
+        "checked exceptions",
+        "unchecked exceptions",
+        "exception chaining",
+        "resource cleanup"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-004",
+      "category": "java",
+      "title": "Multithreading",
+      "text": "Java multithreading allows work to execute concurrently, but correctness depends on coordinating shared state and managing task lifecycles. Prefer ExecutorService or higher-level concurrency utilities over creating unbounded threads manually. Race conditions arise when outcomes depend on unsynchronized interleavings; visibility problems occur when one thread's writes are not guaranteed to be visible to another. Use immutable data, confinement, synchronization, locks, or atomic variables according to the invariant being protected. Bound thread pools and queues to prevent overload, propagate cancellation, and shut executors down cleanly. Diagnose thread starvation and deadlocks with thread dumps and measure contention before increasing thread counts.",
+      "keywords": [
+        "Thread",
+        "ExecutorService",
+        "race conditions",
+        "shared state",
+        "thread pools",
+        "Future"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-005",
+      "category": "java",
+      "title": "Synchronization and locks",
+      "text": "Synchronization protects invariants when multiple Java threads access mutable shared state. A synchronized block acquires an object's monitor and establishes visibility guarantees between matching lock operations. ReentrantLock provides features such as timed acquisition, interruptible locking, and multiple Conditions, but requires unlock in a finally block. Keep critical sections short and acquire multiple locks in a consistent order to reduce deadlock risk. A lock should protect a clearly defined invariant, not be added indiscriminately. For high-contention workloads, consider reducing shared mutation or using concurrent data structures. Diagnose hangs with thread dumps and distinguish lock contention from CPU saturation.",
+      "keywords": [
+        "synchronized",
+        "ReentrantLock",
+        "monitor",
+        "mutual exclusion",
+        "happens-before",
+        "deadlock"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-006",
+      "category": "java",
+      "title": "Garbage collection",
+      "text": "The Java garbage collector reclaims heap objects that are no longer reachable; developers generally do not free objects manually. Collection behavior depends on the selected collector, heap sizing, allocation rate, object lifetime, and pause-time goals. High allocation churn can cause frequent young collections, while retained references can promote objects and create old-generation pressure. A memory leak in a managed runtime often means objects remain reachable unintentionally, for example through static maps, caches, listeners, or unbounded queues. Diagnose with GC logs, heap histograms, heap dumps, and allocation profiling. Do not respond to every pause by simply increasing the heap: first determine whether the problem is retention, allocation, or collector configuration.",
+      "keywords": [
+        "heap",
+        "young generation",
+        "old generation",
+        "GC pause",
+        "allocation rate",
+        "memory leak"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-007",
+      "category": "java",
+      "title": "JVM memory areas",
+      "text": "The JVM uses distinct runtime memory areas with different purposes and failure modes. The heap holds most objects and is managed by garbage collection; each thread has a stack containing frames and local execution state. Metaspace stores class metadata, while direct buffers and native libraries may consume memory outside the Java heap. StackOverflowError usually indicates excessive recursion or deep call chains, whereas OutOfMemoryError may indicate heap exhaustion, metaspace pressure, native-memory exhaustion, or inability to create threads. Use heap and native-memory diagnostics rather than assuming every memory failure requires a larger -Xmx value. Container memory limits must account for heap plus non-heap and native allocations.",
+      "keywords": [
+        "heap",
+        "thread stack",
+        "metaspace",
+        "program counter",
+        "native memory",
+        "OutOfMemoryError"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-008",
+      "category": "java",
+      "title": "Streams",
+      "text": "The Java Streams API expresses data transformations as pipelines of intermediate operations and a terminal operation. Operations such as map and filter are generally lazy until a terminal operation consumes the stream. Streams are single-use, and side effects inside pipeline functions can make behavior hard to reason about, especially with parallel execution. Use collectors to group, partition, or accumulate results and prefer clear loops when a pipeline obscures control flow. Parallel streams can help CPU-bound independent work but may hurt latency when tasks block, data sets are small, or the common ForkJoinPool is shared. Avoid modifying the source collection while its stream is being consumed.",
+      "keywords": [
+        "map filter reduce collect",
+        "lazy evaluation",
+        "terminal operation",
+        "parallel stream"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-009",
+      "category": "java",
+      "title": "CompletableFuture",
+      "text": "CompletableFuture represents a result that may become available later and supports composition of asynchronous stages. thenApply transforms a completed value, while thenCompose flattens a stage that itself returns a future; using the wrong one can produce nested futures. exceptionally and handle provide recovery paths, but failures must not be silently converted into success. Async stages may use the common pool unless an executor is supplied, so blocking operations can starve unrelated tasks. Combine independent operations when appropriate, set timeouts, propagate cancellation where possible, and define how partial failures are handled. Test exceptional completion as carefully as successful results.",
+      "keywords": [
+        "thenApply",
+        "thenCompose",
+        "exceptionally",
+        "allOf",
+        "async executor",
+        "timeout"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "java-010",
+      "category": "java",
+      "title": "Records and immutability",
+      "text": "Java records provide a concise way to model transparent data carriers with generated accessors, equals, hashCode, and toString. Record components are final references, but a record is not deeply immutable if a component refers to a mutable list, map, array, or object. Make defensive copies at construction and avoid exposing mutable internals when value stability matters. Immutable values simplify sharing across threads, caching, and use as map keys because their equality does not change over time. Records are best suited to data-centric types; they are not a replacement for every class that has behavior, lifecycle, or mutable identity.",
+      "keywords": [
+        "record class",
+        "final fields",
+        "defensive copy",
+        "value semantics",
+        "equals hashCode"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-001",
+      "category": "spring",
+      "title": "Dependency injection",
+      "text": "Spring dependency injection lets the IoC container construct objects and supply their collaborators instead of having classes instantiate dependencies directly. Constructor injection makes required dependencies explicit, supports immutable fields, and simplifies unit testing. Use qualifiers or clear bean naming when multiple implementations satisfy the same interface. Bean scopes and lifecycle callbacks matter when singleton beans depend on request-scoped or stateful objects. Circular dependencies often indicate responsibilities that should be separated rather than hidden with lazy wiring. Keep business logic independent of container lookup so services can be tested without starting the full application context.",
+      "keywords": [
+        "IoC container",
+        "constructor injection",
+        "bean lifecycle",
+        "qualifiers",
+        "circular dependency"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-002",
+      "category": "spring",
+      "title": "REST APIs",
+      "text": "Spring REST endpoints commonly use @RestController and request-mapping annotations to expose HTTP resources. Keep transport DTOs separate from persistence entities so API contracts do not change whenever database models change. Use appropriate status codes, validate input at the boundary, and return consistent error bodies with stable error identifiers. Pagination and filtering protect endpoints from unbounded responses. Make update semantics explicit, distinguish PUT replacement from PATCH partial modification, and document idempotency for operations that clients may retry. Integration tests should cover serialization, validation errors, authorization, and status codes.",
+      "keywords": [
+        "controller",
+        "request mapping",
+        "DTO",
+        "status codes",
+        "validation",
+        "pagination",
+        "error response"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-003",
+      "category": "spring",
+      "title": "External configuration",
+      "text": "Spring Boot external configuration separates deployment-specific settings from application code. Properties can come from configuration files, profiles, environment variables, command-line arguments, and other property sources with defined precedence. Bind related settings to typed @ConfigurationProperties classes and validate them at startup instead of scattering string lookups throughout the code. Profiles are useful for environment-specific behavior but should not become a substitute for sound deployment configuration. Keep credentials out of source control and logs, and fail fast when required settings are missing or malformed.",
+      "keywords": [
+        "application.yml",
+        "profiles",
+        "environment variables",
+        "configuration properties",
+        "secrets"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-004",
+      "category": "spring",
+      "title": "Actuator",
+      "text": "Spring Boot Actuator exposes operational endpoints for application health, metrics, environment information, and diagnostics. Enable only the endpoints needed and secure sensitive management data; exposing env, configprops, or heap dumps publicly can leak secrets or create denial-of-service risks. Liveness should indicate whether the process can continue, while readiness should indicate whether it can receive traffic. Health checks should avoid expensive dependency cascades that amplify an outage. Export metrics to a monitoring system and use endpoint exposure settings deliberately in production.",
+      "keywords": [
+        "health endpoint",
+        "metrics",
+        "info",
+        "management port",
+        "endpoint exposure",
+        "probes"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-005",
+      "category": "spring",
+      "title": "Spring Data JPA",
+      "text": "Spring Data JPA reduces repository boilerplate through interfaces, derived query methods, JPQL, and pagination support. Repository convenience does not remove the need to understand SQL, transaction boundaries, entity state, and fetch behavior. Lazy relationships can trigger N+1 queries when iterated across many entities; inspect generated SQL and use projections, fetch joins, entity graphs, or batch fetching appropriately. Avoid serializing persistence entities directly from REST controllers. Define clear transaction boundaries and test queries against the database dialect used in production.",
+      "keywords": [
+        "repository interface",
+        "derived query",
+        "JPQL",
+        "entity lifecycle",
+        "N+1 query",
+        "fetch join"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-006",
+      "category": "spring",
+      "title": "Transaction management",
+      "text": "Spring's declarative transaction management usually applies through proxies around method calls. @Transactional behavior can be surprising when a method calls another transactional method on the same object, because self-invocation may bypass the proxy. By default, rollback behavior differs for unchecked and checked exceptions unless configured. Choose propagation and isolation based on business invariants and database behavior, not as generic annotations. Keep transactions short and avoid network calls while holding database locks. Verify that transaction boundaries match the intended unit of work and that exceptions are not swallowed before rollback decisions.",
+      "keywords": [
+        "@Transactional",
+        "propagation",
+        "isolation",
+        "rollback rules",
+        "proxy",
+        "self invocation"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-007",
+      "category": "spring",
+      "title": "Spring caching",
+      "text": "Spring's cache abstraction supports annotations such as @Cacheable, @CachePut, and @CacheEvict over a configured cache provider. A correct cache key must include every input that affects the result, including tenant or authorization context where relevant. Cache invalidation is often harder than cache population: stale data can persist after updates, and multiple application instances need a shared or coordinated cache strategy. Set TTLs according to freshness requirements, monitor hit ratio and eviction behavior, and avoid caching sensitive results across users. Test proxy behavior and cache annotations on externally invoked methods.",
+      "keywords": [
+        "@Cacheable",
+        "@CacheEvict",
+        "cache key",
+        "TTL",
+        "invalidation",
+        "stale data"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-008",
+      "category": "spring",
+      "title": "Spring Security",
+      "text": "Spring Security applies authentication and authorization through a filter chain and optional method-level checks. Configure explicit access rules, prefer least privilege, and distinguish proving identity from deciding whether that identity may perform an action. Browser applications may need CSRF protection when credentials are sent automatically; stateless bearer-token APIs have different threat assumptions. Validate issuer, audience, signature, and expiry for JWTs, and do not disable security globally to make tests pass. Add tests for both permitted and denied requests, including role and ownership boundaries.",
+      "keywords": [
+        "security filter chain",
+        "authentication",
+        "authorization",
+        "CSRF",
+        "method security",
+        "OAuth2 resource server"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-009",
+      "category": "spring",
+      "title": "Bean validation",
+      "text": "Bean Validation uses annotations such as @NotNull, @Size, @Email, and custom constraints to express input rules. In Spring MVC, @Valid or @Validated triggers validation of request objects, while method validation has its own proxy and configuration considerations. Validate at external boundaries and return structured client errors without leaking internal object details. Validation is not a substitute for database constraints or authorization checks. Include cross-field rules when a valid request depends on relationships between fields, and test boundary values and malformed input.",
+      "keywords": [
+        "@Valid",
+        "@Validated",
+        "constraints",
+        "groups",
+        "method validation",
+        "validation error"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "spring-010",
+      "category": "spring",
+      "title": "Spring Boot testing",
+      "text": "Spring Boot testing ranges from fast unit tests with JUnit and Mockito to focused MVC or persistence slice tests and full application-context integration tests. Use the narrowest test that proves the behavior; loading the entire context for every unit is slow and can hide design coupling. Mock external boundaries, but use a real database through Testcontainers when SQL dialect behavior matters. Ensure tests are isolated, deterministic, and do not depend on execution order or shared mutable state. Cover configuration, serialization, transaction rollback, and security filters at the appropriate test layer.",
+      "keywords": [
+        "JUnit",
+        "Mockito",
+        "@SpringBootTest",
+        "slice test",
+        "Testcontainers",
+        "test isolation"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-001",
+      "category": "microservices",
+      "title": "API gateway",
+      "text": "An API gateway is the entry point that routes client requests to backend services and may enforce cross-cutting policies such as authentication, TLS termination, quotas, and request shaping. Keep business rules out of the gateway where they belong to domain services. Aggregating multiple backend calls can simplify clients but introduces latency and partial-failure handling. Configure timeouts, payload limits, and rate limits, and avoid making the gateway a single point of operational fragility. Monitor per-route latency and errors, and preserve trace context across forwarded requests.",
+      "keywords": [
+        "routing",
+        "authentication",
+        "rate limiting",
+        "TLS termination",
+        "aggregation",
+        "edge service"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-002",
+      "category": "microservices",
+      "title": "Service discovery",
+      "text": "Service discovery lets callers locate healthy instances whose addresses change as services scale or restart. Discovery may be provided by DNS, a registry, or platform-native service abstractions. Registration and health status must converge quickly enough to avoid routing to dead instances, but overly aggressive checks can flap during transient load. Combine discovery with load balancing, connection timeouts, and retries that respect request idempotency. In Kubernetes, Services and DNS often provide the discovery layer; a separate registry is not automatically needed.",
+      "keywords": [
+        "registry",
+        "DNS discovery",
+        "health status",
+        "client-side discovery",
+        "load balancing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-003",
+      "category": "microservices",
+      "title": "Circuit breaker",
+      "text": "A circuit breaker temporarily stops calls to a dependency when failures or slow responses cross configured thresholds. Closed permits calls, open rejects calls quickly, and half-open allows a limited trial to determine whether recovery has occurred. It protects callers from repeatedly waiting on an unhealthy service, but it does not replace timeouts or bulkheads. Tune thresholds using observed latency and failure rates, avoid unsafe fallbacks that fabricate success, and expose breaker state through metrics. Test recovery behavior and ensure a breaker does not hide a permanent functional defect.",
+      "keywords": [
+        "closed open half-open states",
+        "failure threshold",
+        "slow calls",
+        "fallback",
+        "resilience"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-004",
+      "category": "microservices",
+      "title": "Saga distributed transactions",
+      "text": "A Saga coordinates a business transaction across services without a single ACID transaction spanning every database. Each step commits locally; if a later step fails, compensating actions attempt to reverse earlier business effects. Orchestration centralizes workflow decisions, while choreography uses events and can distribute control across participants. Compensation is not always a literal rollback: a payment refund or booking cancellation is a new business action with its own failure modes. Design idempotent steps, durable state, timeouts, retries, and operator-visible recovery for stuck workflows.",
+      "keywords": [
+        "distributed transaction",
+        "compensating action",
+        "orchestration",
+        "choreography",
+        "eventual consistency"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-005",
+      "category": "microservices",
+      "title": "Retry strategy",
+      "text": "Retries can recover from transient network errors, throttling, and temporary unavailability, but they amplify load when every caller retries aggressively. Use bounded attempts, exponential backoff, jitter, and an overall deadline. Retry only failures that may succeed later and only when repeating the operation is safe; non-idempotent writes need an idempotency key or equivalent protection. Avoid retry multiplication across gateway, client, and service layers. Monitor retry rate and exhaustion, and combine retries with circuit breakers and load shedding.",
+      "keywords": [
+        "exponential backoff",
+        "jitter",
+        "retry budget",
+        "transient failure",
+        "idempotency",
+        "timeout"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-006",
+      "category": "microservices",
+      "title": "Bulkhead isolation",
+      "text": "Bulkhead isolation limits how much one failing dependency or workload can consume from shared resources. Separate thread pools, bounded queues, semaphores, or per-tenant concurrency limits can prevent slow calls from exhausting all request capacity. The limits must be sized from workload and latency measurements; tiny limits cause needless rejection, while unlimited queues convert overload into long latency and memory pressure. Pair bulkheads with timeouts, metrics, and explicit overload responses. Test a slow dependency and verify unrelated operations continue to make progress.",
+      "keywords": [
+        "concurrency limit",
+        "thread pool isolation",
+        "semaphore",
+        "queue saturation",
+        "dependency isolation"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-007",
+      "category": "microservices",
+      "title": "Idempotency",
+      "text": "Idempotency means repeating the same operation has the same intended effect as performing it once. It is essential when clients retry after timeouts because a server may have completed a request even though the response was lost. An API can accept an idempotency key, persist the request outcome, and return the original result for duplicates. Define key scope, retention, payload mismatch behavior, concurrency handling, and transactional storage. Idempotency does not mean every response is identical under all conditions; it means duplicate delivery does not duplicate the business effect.",
+      "keywords": [
+        "idempotency key",
+        "duplicate request",
+        "payment retry",
+        "deduplication",
+        "exactly-once effect"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-008",
+      "category": "microservices",
+      "title": "Configuration management",
+      "text": "Configuration management distributes service settings consistently across environments while keeping deploy-time values outside application binaries. Separate ordinary configuration, secrets, and feature flags because they have different security and rollout needs. Validate configuration before activation, version changes, and provide a safe rollback path. Dynamic refresh can reduce redeployments but may create mixed behavior if related settings update non-atomically. Avoid storing secrets in plain-text repositories or exposing them through diagnostic endpoints.",
+      "keywords": [
+        "central config",
+        "feature flags",
+        "secret rotation",
+        "versioning",
+        "dynamic refresh"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-009",
+      "category": "microservices",
+      "title": "API versioning",
+      "text": "API versioning manages change when clients and services deploy independently. Prefer additive, backward-compatible changes where possible; removing fields, changing meanings, or tightening validation can break existing consumers even if the endpoint path stays the same. URI, header, and media-type versioning each have trade-offs for routing, documentation, and caching. Publish deprecation timelines, observe version usage, and test old clients against new servers. Version only when compatibility cannot be maintained, rather than creating a new version for every internal change.",
+      "keywords": [
+        "backward compatibility",
+        "semantic version",
+        "URI version",
+        "header version",
+        "deprecation"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "microservices-010",
+      "category": "microservices",
+      "title": "Event-driven architecture",
+      "text": "Event-driven architecture lets producers publish facts that consumers process asynchronously through a broker. It decouples availability and deployment timing but introduces eventual consistency, duplicate delivery, ordering constraints, and harder end-to-end debugging. Distinguish domain events from commands, define ownership and schema evolution rules, and make consumers idempotent. The transactional outbox pattern can prevent a database update from succeeding while its corresponding event is lost. Monitor consumer lag, dead letters, and event-processing failures.",
+      "keywords": [
+        "event producer",
+        "consumer",
+        "broker",
+        "eventual consistency",
+        "event schema",
+        "outbox pattern"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-001",
+      "category": "aws",
+      "title": "EC2 virtual machines",
+      "text": "Amazon EC2 provides resizable virtual machine instances. Choose instance families based on CPU, memory, storage, or network needs, and select an AMI that matches the operating system and patching process. Security groups act as stateful virtual firewalls; IAM instance profiles provide AWS API permissions without embedding long-lived access keys. EBS volumes persist independently of an instance's lifecycle depending on configuration. Use Auto Scaling and health checks for replaceable workloads, patch images regularly, and inspect CloudWatch metrics when CPU credit, memory, disk, or network limits affect performance.",
+      "keywords": [
+        "instance type",
+        "AMI",
+        "EBS",
+        "security group",
+        "user data",
+        "Auto Scaling"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-002",
+      "category": "aws",
+      "title": "S3 object storage",
+      "text": "Amazon S3 stores objects in buckets under object keys; it is object storage, not a mounted block disk or relational database. Access is controlled through IAM policies, bucket policies, access points, and other settings, so public access should be blocked unless deliberately required. Versioning can recover from accidental overwrite or deletion, while lifecycle rules move or expire data to control cost. Configure encryption, logging, and retention to match data requirements. Use presigned URLs for time-limited access and CloudFront when global content delivery or edge caching is needed.",
+      "keywords": [
+        "object key",
+        "bucket policy",
+        "versioning",
+        "lifecycle",
+        "encryption",
+        "presigned URL",
+        "consistency"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-003",
+      "category": "aws",
+      "title": "Lambda functions",
+      "text": "AWS Lambda runs code in response to events without requiring the user to manage servers. Each function has an execution role, memory and timeout settings, concurrency behavior, and an event-source integration such as API Gateway, SQS, or EventBridge. Cold starts and downstream connection limits matter for latency-sensitive workloads. Functions should tolerate duplicate events and use idempotent processing, especially with at-least-once event sources. Monitor duration, throttles, errors, concurrency, and retries; move long-running or continuously busy workloads to an appropriate compute service when economics or limits warrant it.",
+      "keywords": [
+        "event source",
+        "execution role",
+        "cold start",
+        "timeout",
+        "concurrency",
+        "idempotency"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-004",
+      "category": "aws",
+      "title": "ECS Fargate containers",
+      "text": "Amazon ECS on Fargate runs containers without managing EC2 worker instances. A task definition describes images, CPU and memory, ports, environment, logging, and IAM roles; an ECS service maintains desired task count and manages deployments. Fargate tasks use VPC networking, so subnets, route tables, security groups, and outbound connectivity matter. Separate task execution permissions from application task permissions. Configure health checks, deployment circuit breakers, log collection, and autoscaling, and investigate stopped-task reasons when deployments fail.",
+      "keywords": [
+        "task definition",
+        "service",
+        "task",
+        "CPU memory",
+        "awsvpc",
+        "deployment health"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-005",
+      "category": "aws",
+      "title": "RDS databases",
+      "text": "Amazon RDS operates managed relational database engines while handling routine infrastructure tasks such as backups and maintenance options. Multi-AZ deployment targets availability and failover, whereas read replicas primarily scale read traffic and may have replication lag. Place databases in private subnets, restrict security-group ingress, enable encryption and backups, and choose retention to meet recovery objectives. Application connection pools must respect database connection limits. Monitor storage, CPU, memory, freeable memory, connections, latency, and replication lag rather than assuming a managed database tunes itself.",
+      "keywords": [
+        "managed relational database",
+        "Multi-AZ",
+        "read replica",
+        "backups",
+        "parameter group",
+        "connection limit"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-006",
+      "category": "aws",
+      "title": "Application Load Balancer",
+      "text": "An Application Load Balancer distributes HTTP and HTTPS requests to registered targets and supports listener rules such as host-based and path-based routing. Target groups define backend targets and health checks; a target can be unhealthy even while the load balancer itself is available. Configure TLS certificates, security groups, deregistration delay, and routing rules deliberately. Use access logs and target-response metrics to distinguish load-balancer errors from application failures. Avoid relying on sticky sessions unless the workload truly requires them.",
+      "keywords": [
+        "listener",
+        "target group",
+        "health check",
+        "path routing",
+        "TLS certificate",
+        "sticky session"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-007",
+      "category": "aws",
+      "title": "VPC networking",
+      "text": "An Amazon VPC is an isolated virtual network with CIDR ranges, subnets, route tables, and network controls. Public subnet status depends on routing through an internet gateway and the resource's addressing and security configuration; the subnet name alone does not make a resource public. Private subnets often use a NAT gateway for outbound IPv4 access, which has cost and availability implications. Security groups are stateful and attached to network interfaces, while network ACLs are stateless subnet-level filters. Diagnose connectivity hop by hop using routes, DNS, security groups, NACLs, and endpoints.",
+      "keywords": [
+        "subnet",
+        "route table",
+        "internet gateway",
+        "NAT gateway",
+        "security group",
+        "network ACL"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-008",
+      "category": "aws",
+      "title": "IAM roles and policies",
+      "text": "AWS IAM policies define allowed or denied actions on resources, while a role's trust policy controls which principals may assume it. Permissions and trust are separate questions: a workload may be allowed to assume a role but still lack permission for a requested API. Prefer temporary role credentials through instance profiles, task roles, or federation over embedded access keys. Apply least privilege, understand explicit deny and policy evaluation, and audit unused permissions. Test access with the actual principal and resource context rather than granting administrator access as a shortcut.",
+      "keywords": [
+        "least privilege",
+        "trust policy",
+        "identity policy",
+        "resource policy",
+        "temporary credentials"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-009",
+      "category": "aws",
+      "title": "CloudFront CDN",
+      "text": "Amazon CloudFront caches content at edge locations to reduce latency and origin load. Cache behavior controls path routing, allowed methods, headers, cookies, query strings, and TTL; forwarding too many values can fragment the cache, while ignoring relevant values can serve incorrect content. Configure origin access securely, especially for private S3 content, and use signed URLs or cookies for restricted distribution. Invalidation removes cached objects but does not fix a bad cache key or origin configuration. Measure cache hit ratio and origin latency.",
+      "keywords": [
+        "edge location",
+        "origin",
+        "cache behavior",
+        "TTL",
+        "invalidation",
+        "signed URL"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "aws-010",
+      "category": "aws",
+      "title": "Auto Scaling",
+      "text": "Auto Scaling adjusts compute capacity based on desired state, health, schedules, or metrics. Target tracking attempts to maintain a metric such as average CPU utilization, while step scaling applies different capacity changes across threshold ranges. Scaling needs startup time, warm-up periods, service quotas, and downstream capacity to be considered. Scale-out cannot solve every bottleneck if a database or external API is already saturated. Set minimum and maximum bounds, test instance replacement, and verify alarms and policies using realistic load.",
+      "keywords": [
+        "desired capacity",
+        "scaling policy",
+        "target tracking",
+        "cooldown",
+        "health replacement"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-001",
+      "category": "database",
+      "title": "Database indexes",
+      "text": "A database index is an auxiliary data structure that helps locate rows without scanning an entire table. B-tree indexes are useful for equality and range predicates, while composite index usefulness depends on column order and the query's predicates and ordering. Indexes consume storage and slow inserts, updates, and deletes because the structures must be maintained. Use EXPLAIN or the database's query-plan tools to confirm an index is selected. Avoid adding indexes solely because a column appears in a WHERE clause; consider selectivity, workload frequency, and covering opportunities.",
+      "keywords": [
+        "B-tree",
+        "composite index",
+        "selectivity",
+        "covering index",
+        "write overhead",
+        "query plan"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-002",
+      "category": "database",
+      "title": "SQL joins",
+      "text": "SQL joins combine rows based on a relationship between tables. INNER JOIN returns matching combinations, while LEFT JOIN retains every left-side row and fills missing right-side values with NULL. Joining on non-unique keys can multiply rows, and filtering a nullable right-side column in WHERE can unintentionally turn a left join into an inner-like result. Check key cardinality and expected row counts, use explicit join conditions, and inspect query plans for large joins. Aggregation before or after a join can change results if duplicates are not understood.",
+      "keywords": [
+        "inner join",
+        "left join",
+        "cardinality",
+        "join key",
+        "duplicate rows",
+        "NULL"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-003",
+      "category": "database",
+      "title": "ACID transactions",
+      "text": "ACID describes transaction guarantees: atomicity groups changes, consistency preserves defined invariants, isolation controls interference among concurrent transactions, and durability preserves committed work according to the database's guarantees. Isolation levels differ in which anomalies they prevent and what concurrency costs they impose. Keep transactions short, handle deadlock retries carefully, and do not assume an application-level sequence is atomic without a database transaction. External side effects such as sending email are not automatically rolled back with a database transaction; use an outbox or compensating workflow when needed.",
+      "keywords": [
+        "atomicity",
+        "consistency",
+        "isolation",
+        "durability",
+        "commit",
+        "rollback",
+        "isolation anomaly"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-004",
+      "category": "database",
+      "title": "Database locking",
+      "text": "Database locks coordinate concurrent operations so conflicting writes do not violate consistency. Row-level locks can improve concurrency compared with broad locks, but transactions may still block on indexes, foreign keys, or lock escalation depending on the engine. Deadlocks occur when transactions wait on resources held by one another; databases usually abort one participant. Keep transactions short, access rows in consistent order, index predicates used by updates, and inspect lock-wait diagnostics. MVCC can let readers avoid some blocking, but it does not eliminate write conflicts or every form of contention.",
+      "keywords": [
+        "row lock",
+        "table lock",
+        "deadlock",
+        "lock wait",
+        "MVCC",
+        "transaction duration"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-005",
+      "category": "database",
+      "title": "Query optimization",
+      "text": "Query optimization selects an execution plan based on query structure, statistics, indexes, and estimated row counts. A slow query may be caused by poor cardinality estimates, an unsuitable join order, excessive rows, sorting, or random I/O rather than missing indexes alone. Use EXPLAIN and, where safe, EXPLAIN ANALYZE to compare estimates with actual execution. Update statistics, reduce unnecessary columns and rows, and measure changes against representative data. Avoid optimizing from query text alone or relying on a plan observed only on a tiny development database.",
+      "keywords": [
+        "EXPLAIN ANALYZE",
+        "execution plan",
+        "cardinality estimate",
+        "sequential scan",
+        "join order"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-006",
+      "category": "database",
+      "title": "Connection pooling",
+      "text": "Connection pooling reuses established database connections to avoid repeated handshake and authentication costs. Pool size must balance concurrent database work against the server's connection budget; increasing every application's pool can overwhelm the database. Long transactions and leaked connections cause waiters to queue even when query execution is fast. Set acquisition timeouts, idle and maximum lifetime settings, and validate connections where appropriate. Monitor active, idle, pending, and timed-out acquisitions alongside database connection counts and query latency.",
+      "keywords": [
+        "pool size",
+        "idle connection",
+        "max lifetime",
+        "wait timeout",
+        "connection leak"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-007",
+      "category": "database",
+      "title": "Normalization",
+      "text": "Relational normalization organizes attributes according to functional dependencies to reduce duplicated facts and update anomalies. First, second, and third normal forms address different forms of repeating groups and dependencies; normalization is not simply splitting every table into as many tables as possible. Correct keys and relationships matter more than memorizing labels. Denormalization can be justified for measured read performance, but duplicated data then needs explicit consistency rules. Review insert, update, and delete anomalies when deciding whether a schema design is sound.",
+      "keywords": [
+        "functional dependency",
+        "1NF",
+        "2NF",
+        "3NF",
+        "update anomaly",
+        "denormalization"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-008",
+      "category": "database",
+      "title": "Replication",
+      "text": "Replication copies database changes from a primary or leader to one or more replicas. Asynchronous replicas can lag, so a read immediately after a write may return stale data if routed to a replica. Synchronous replication can improve durability or consistency guarantees but adds latency and availability trade-offs. Replication is not a substitute for backups because deletion or corruption may replicate too. Monitor lag, define read-routing consistency requirements, and test promotion and failback procedures.",
+      "keywords": [
+        "primary replica",
+        "asynchronous replication",
+        "replication lag",
+        "failover",
+        "read-after-write"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-009",
+      "category": "database",
+      "title": "Optimistic concurrency",
+      "text": "Optimistic concurrency assumes conflicts are relatively uncommon and detects them when committing a change. An application can read a version number and update only if that version remains unchanged; if zero rows are updated, another writer won and the operation must be retried or presented as a conflict. This prevents silent lost updates without holding a lock for the entire user think-time. Include the version in update predicates, return a meaningful conflict response, and ensure retries re-read current state rather than replaying stale data.",
+      "keywords": [
+        "version column",
+        "compare and swap",
+        "lost update",
+        "conditional update",
+        "conflict response"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "database-010",
+      "category": "database",
+      "title": "Partitioning",
+      "text": "Partitioning divides a large logical table into smaller physical pieces based on a key such as date or hash. Partition pruning can reduce scanned data when queries constrain the partition key, and time-based partitions can simplify retention. A poor key can create skew or force queries to touch every partition; partitioning does not automatically make all queries faster. Choose boundaries based on access patterns, unique constraints, maintenance operations, and data lifecycle. Measure query plans and understand how indexes behave within and across partitions.",
+      "keywords": [
+        "range partition",
+        "hash partition",
+        "pruning",
+        "partition key",
+        "skew",
+        "retention"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-001",
+      "category": "containers",
+      "title": "Docker images",
+      "text": "A Docker image is an immutable, layered template used to create containers. Dockerfiles define build steps, and ordering those steps affects cache reuse; copying dependency manifests before frequently changing source files can preserve expensive dependency layers. Multi-stage builds keep compilers and build tools out of the final runtime image. Pin trusted base images, scan dependencies, avoid embedding credentials in layers, and prefer small runtime images. Use image digests when reproducibility matters and rebuild regularly to incorporate security fixes.",
+      "keywords": [
+        "Dockerfile",
+        "layer cache",
+        "base image",
+        "multi-stage build",
+        "image digest",
+        "vulnerability scan"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-002",
+      "category": "containers",
+      "title": "Docker containers",
+      "text": "A Docker container is an isolated process created from an image, using operating-system mechanisms such as namespaces and cgroups. Containers share the host kernel, so they are not equivalent to virtual machines. Runtime configuration controls environment variables, ports, volumes, resource limits, and restart behavior. Applications should run as non-root where practical, handle termination signals, and write logs to standard output or a configured logging driver. Data written only to the writable container layer may disappear when the container is replaced.",
+      "keywords": [
+        "container process",
+        "namespace",
+        "cgroup",
+        "port mapping",
+        "environment",
+        "signal handling"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-003",
+      "category": "containers",
+      "title": "Docker volumes",
+      "text": "Docker volumes persist data independently from a container's writable layer and are commonly used for databases or files that must survive container replacement. Named volumes are managed by Docker, while bind mounts map a host path into the container and introduce host-path and permission dependencies. Persistence does not equal backup: volume data still needs snapshots or application-consistent backups. Understand mount ownership, initialization behavior, and whether the application can tolerate a volume being unavailable. Avoid storing important state solely in an ephemeral container filesystem.",
+      "keywords": [
+        "persistent data",
+        "bind mount",
+        "named volume",
+        "lifecycle",
+        "backup",
+        "permissions"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-004",
+      "category": "containers",
+      "title": "Kubernetes Pods",
+      "text": "A Kubernetes Pod is the smallest schedulable unit and may contain one or more tightly coupled containers sharing a network namespace and volumes. Containers in a Pod can communicate over localhost, but they also share the Pod's lifecycle and placement. Pods are usually disposable; controllers create replacements, so stable identity and persistent storage require appropriate Kubernetes resources. Init containers can prepare prerequisites before application containers start, while sidecars provide supporting behavior. Debug scheduling failures through events, resource requests, node capacity, and image-pull status.",
+      "keywords": [
+        "shared network namespace",
+        "sidecar",
+        "ephemeral lifecycle",
+        "init container",
+        "pod scheduling"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-005",
+      "category": "containers",
+      "title": "Kubernetes Deployments",
+      "text": "A Kubernetes Deployment manages ReplicaSets and declaratively maintains a desired number of application Pods. Rolling updates replace old replicas gradually according to surge and unavailable settings, while rollout history supports rollback to a prior revision. Readiness probes determine whether new Pods should receive traffic; an incorrect probe can stall or prematurely advance a rollout. Define resource requests and limits, use immutable image tags or digests, and inspect rollout status and events when deployment progress stops. A Deployment does not itself provide durable application data.",
+      "keywords": [
+        "ReplicaSet",
+        "rolling update",
+        "rollout history",
+        "readiness",
+        "rollback",
+        "desired replicas"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-006",
+      "category": "containers",
+      "title": "Kubernetes Services",
+      "text": "A Kubernetes Service provides a stable virtual endpoint for a changing set of Pods selected by labels. ClusterIP is internal to the cluster, NodePort exposes a port on nodes, and LoadBalancer integrates with supported external load balancers. A Service with no endpoints often indicates a selector-label mismatch or Pods that are not ready. Services provide discovery and load distribution but do not automatically encrypt traffic or implement application-level retries. Verify selectors, endpoint slices, network policies, and port versus targetPort configuration.",
+      "keywords": [
+        "ClusterIP",
+        "NodePort",
+        "LoadBalancer",
+        "selector",
+        "endpoints",
+        "service discovery"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-007",
+      "category": "containers",
+      "title": "ConfigMaps and Secrets",
+      "text": "Kubernetes ConfigMaps hold non-sensitive configuration, while Secrets are intended for sensitive values such as credentials and certificates. Base64 encoding is not encryption; protect Secret access with RBAC and configure encryption at rest where required. Mounted configuration and environment variables have different update behavior, and applications may need a restart or reload mechanism to consume changes. Avoid committing secret manifests to source control and define rotation procedures. Use external secret-management integrations when central lifecycle control is needed.",
+      "keywords": [
+        "environment variables",
+        "mounted config",
+        "secret encryption",
+        "rotation",
+        "rollout restart"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-008",
+      "category": "containers",
+      "title": "Kubernetes autoscaling",
+      "text": "The Kubernetes Horizontal Pod Autoscaler adjusts replica count from observed metrics such as CPU utilization or custom application signals. CPU utilization is calculated relative to resource requests, so missing or unrealistic requests can make scaling ineffective. Autoscaling reacts after metrics arrive and Pods start, meaning it cannot eliminate all latency spikes. Set sensible minimum and maximum replicas, account for downstream limits, and configure stabilization to reduce flapping. Check metrics availability, pending Pods, and cluster capacity when replica counts fail to increase.",
+      "keywords": [
+        "Horizontal Pod Autoscaler",
+        "metrics server",
+        "CPU request",
+        "scale-up",
+        "stabilization window"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-009",
+      "category": "containers",
+      "title": "Readiness and liveness probes",
+      "text": "Kubernetes readiness probes determine whether a container should receive Service traffic, while liveness probes decide when a container should be restarted. Startup probes give slow-starting applications time to initialize before liveness checks apply. A liveness endpoint that fails whenever a downstream dependency is briefly unavailable can cause restart storms. Probe lightweight signals that match the intended decision, configure initial delays and thresholds, and test behavior under load. Readiness should reflect whether the instance can serve requests, not merely whether the process exists.",
+      "keywords": [
+        "readiness probe",
+        "liveness probe",
+        "startup probe",
+        "failure threshold",
+        "traffic routing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "containers-010",
+      "category": "containers",
+      "title": "Container resource limits",
+      "text": "Container resource requests influence scheduling, while limits constrain resource consumption. A tight CPU limit can cause throttling and high tail latency even when average CPU looks moderate; exceeding a memory limit can terminate a process with OOMKilled. Requests that are too low cause noisy-neighbor effects and poor scheduling, while overly high requests waste cluster capacity. Inspect container metrics, throttling counters, restart reasons, and node pressure. Set limits based on load testing and understand the platform's QoS and eviction behavior.",
+      "keywords": [
+        "CPU throttling",
+        "memory limit",
+        "OOMKilled",
+        "requests",
+        "cgroups",
+        "eviction"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-001",
+      "category": "security",
+      "title": "OAuth 2.0",
+      "text": "OAuth 2.0 is an authorization framework that lets a client obtain limited access to a resource server. The authorization-code flow with PKCE is commonly used for interactive applications, while client credentials suits confidential service-to-service clients. Access tokens should have limited scope and lifetime, and refresh tokens need secure storage and rotation policies. OAuth by itself is not an identity protocol; OpenID Connect adds authentication semantics. Validate issuer, audience, expiry, and scopes at the resource server, and never treat possession of an arbitrary token as sufficient authorization.",
+      "keywords": [
+        "authorization code flow",
+        "PKCE",
+        "access token",
+        "refresh token",
+        "scope",
+        "client credentials"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-002",
+      "category": "security",
+      "title": "OpenID Connect",
+      "text": "OpenID Connect layers authentication on OAuth 2.0 and defines how a client verifies an end user's identity. An ID token communicates authentication claims to the client, while an access token is intended for calling a resource server; they are not interchangeable. Validate the signature, issuer, audience, expiry, and nonce where applicable, and use the provider's discovery metadata correctly. UserInfo can provide additional claims but must be called with an appropriate access token. Avoid trusting unverified JWT payloads or accepting tokens minted for another client.",
+      "keywords": [
+        "OIDC",
+        "ID token",
+        "UserInfo",
+        "nonce",
+        "issuer",
+        "audience",
+        "authentication"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-003",
+      "category": "security",
+      "title": "JWT tokens",
+      "text": "A JSON Web Token commonly carries claims in a signed token with header, payload, and signature segments. Base64url-encoded claims are readable, so JWTs must not contain secrets. A verifier should allow only expected algorithms and validate signature, issuer, audience, expiry, and relevant application claims. Token revocation is harder for self-contained tokens, so short lifetimes, key rotation, or server-side revocation strategies may be required. Do not confuse decoding a JWT with verifying it, and do not accept unsigned or incorrectly targeted tokens.",
+      "keywords": [
+        "JWT header payload signature",
+        "claims",
+        "exp",
+        "aud",
+        "iss",
+        "signing key",
+        "bearer token"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-004",
+      "category": "security",
+      "title": "Authentication versus authorization",
+      "text": "Authentication establishes who or what a principal is; authorization decides whether that principal may perform a requested action on a resource. A successful login must not imply unrestricted access. Authorization checks should consider roles or scopes and, where needed, resource ownership, tenant boundaries, and current business state. Enforce checks on the server for every sensitive operation, not only by hiding UI controls. Test negative cases such as one user attempting to read or modify another user's records.",
+      "keywords": [
+        "identity verification",
+        "permissions",
+        "role",
+        "policy",
+        "access control",
+        "principal"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-005",
+      "category": "security",
+      "title": "TLS and HTTPS",
+      "text": "TLS protects data in transit by authenticating endpoints and negotiating cryptographic keys. HTTPS is HTTP carried over TLS. Clients must validate certificate chains and hostnames; disabling verification defeats a core protection and can permit interception. Certificate expiration, incomplete chains, incompatible protocol settings, and trust-store problems commonly cause handshake failures. Mutual TLS additionally authenticates clients using certificates. Use modern TLS configurations, automate certificate renewal, and never treat encryption alone as authorization.",
+      "keywords": [
+        "certificate chain",
+        "hostname verification",
+        "handshake",
+        "encryption in transit",
+        "mutual TLS"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-006",
+      "category": "security",
+      "title": "Password hashing",
+      "text": "Password storage should use a dedicated slow password-hashing function such as Argon2id, bcrypt, or scrypt with a unique salt per password. Fast general-purpose hashes such as SHA-256 alone make offline guessing too cheap. Tune the work factor to current hardware and operational latency, and upgrade parameters over time. Never store plaintext passwords or reversible encryption as a substitute for password hashing. Combine secure storage with rate limiting, MFA where appropriate, breached-password defenses, and safe password-reset flows.",
+      "keywords": [
+        "Argon2id",
+        "bcrypt",
+        "scrypt",
+        "salt",
+        "work factor",
+        "credential stuffing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-007",
+      "category": "security",
+      "title": "Role-based access control",
+      "text": "Role-based access control maps users or service identities to roles, and roles to permissions. It simplifies policy management when job functions align with stable permission bundles, but poorly designed roles can accumulate excessive privileges or proliferate uncontrollably. Separate role administration from routine use, apply least privilege, and consider tenant and resource-level conditions when roles alone are too coarse. Audit effective permissions and test both allowed and forbidden paths. Do not rely on a client-supplied role name without verifying it server-side.",
+      "keywords": [
+        "role assignment",
+        "permission",
+        "least privilege",
+        "role explosion",
+        "tenant scope"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-008",
+      "category": "security",
+      "title": "API rate limiting",
+      "text": "API rate limiting controls how many requests a client can make over a defined interval, protecting capacity and reducing abuse. Token-bucket algorithms allow controlled bursts while enforcing a long-term rate; fixed windows are simpler but can permit boundary bursts. Define the identity used for limits, such as API key, user, tenant, or IP, and coordinate counters across instances when limits must be global. Return 429 with useful retry guidance, and distinguish rate limiting from concurrency limiting. Monitor legitimate-client throttling and avoid trusting spoofable identity headers.",
+      "keywords": [
+        "token bucket",
+        "leaky bucket",
+        "quota",
+        "429 response",
+        "Retry-After",
+        "distributed counter"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-009",
+      "category": "security",
+      "title": "Secrets management",
+      "text": "Secrets management governs how credentials, API keys, certificates, and encryption material are created, distributed, rotated, and revoked. Store secrets in a dedicated manager or platform facility, restrict access by workload identity, and avoid embedding secrets in source code, container images, logs, or build artifacts. Rotation must account for consumers that cache credentials and for overlapping old and new values. Audit access and test emergency revocation. Encryption at rest helps, but access control and lifecycle management are equally important.",
+      "keywords": [
+        "vault",
+        "KMS",
+        "rotation",
+        "workload identity",
+        "secret injection",
+        "audit trail"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "security-010",
+      "category": "security",
+      "title": "Cross-site scripting prevention",
+      "text": "Cross-site scripting occurs when untrusted data is interpreted as executable script in a browser. Prevent it primarily through context-aware output encoding and safe DOM APIs; sanitize HTML only when rich markup is intentionally allowed. Validate URL schemes and avoid dangerous sinks such as unsanitized innerHTML. Content Security Policy can reduce impact but is not a substitute for correct encoding. Test reflected, stored, and DOM-based XSS paths, including data that passes through templates, APIs, and client-side rendering.",
+      "keywords": [
+        "contextual output encoding",
+        "HTML sanitization",
+        "CSP",
+        "DOM XSS",
+        "untrusted input"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-001",
+      "category": "messaging",
+      "title": "Kafka topics and partitions",
+      "text": "Kafka topics organize event streams, and partitions provide parallelism and an ordered log within each partition. Ordering is guaranteed within a partition, not across an entire multi-partition topic. Replication factor and in-sync replica settings affect fault tolerance, while retention controls how long records remain available. Choose partition count based on throughput, consumer parallelism, and operational constraints because increasing partitions later can change key-to-partition mapping. Monitor under-replicated partitions, broker capacity, and request latency.",
+      "keywords": [
+        "partition assignment",
+        "ordering",
+        "replication factor",
+        "leader",
+        "retention"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-002",
+      "category": "messaging",
+      "title": "Kafka consumer groups",
+      "text": "A Kafka consumer group distributes partitions among consumers sharing a group ID so each partition is processed by one group member at a time. Adding consumers beyond the partition count does not increase parallelism for that topic. Rebalances temporarily change ownership and can interrupt processing, especially when consumers take too long between polls. Keep processing bounded, configure heartbeat and poll settings carefully, and monitor lag and rebalance frequency. Different group IDs create independent subscriptions and each group reads its own logical stream.",
+      "keywords": [
+        "consumer assignment",
+        "partition ownership",
+        "rebalancing",
+        "lag",
+        "group ID",
+        "parallelism"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-003",
+      "category": "messaging",
+      "title": "Kafka offsets",
+      "text": "Kafka offsets identify positions in a partition log. Committing an offset records progress so a consumer can resume after restart; committing before durable processing risks losing work, while committing after processing can cause duplicate work after a crash. Manual commits often make processing guarantees easier to reason about. Offset reset policies determine where a new or missing-offset consumer starts. Monitor lag, handle replays safely, and coordinate offset commits with database effects when duplicates would be harmful.",
+      "keywords": [
+        "commit offset",
+        "at-least-once",
+        "replay",
+        "auto commit",
+        "duplicate processing"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-004",
+      "category": "messaging",
+      "title": "Delivery semantics",
+      "text": "Messaging delivery semantics describe how messages may be lost or repeated. At-most-once avoids duplicate processing but can lose messages; at-least-once retries until acknowledged but can deliver duplicates. Exactly-once claims are scoped to particular broker and processing boundaries and do not automatically make arbitrary external side effects exactly once. Idempotent consumers, deduplication records, and transactional processing help control duplicate effects. State the actual guarantee across producer, broker, consumer, and database rather than relying on a label.",
+      "keywords": [
+        "at-most-once",
+        "at-least-once",
+        "exactly-once",
+        "deduplication",
+        "transaction",
+        "idempotent consumer"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-005",
+      "category": "messaging",
+      "title": "Kafka message keys",
+      "text": "A Kafka record key influences partition selection and is often chosen to keep events for one entity on the same partition. This preserves per-key order when the partition assignment remains stable, but a highly popular key can create a hot partition. Null keys may be distributed according to producer partitioning behavior and do not provide entity affinity. Choose keys based on ordering and load requirements, and understand how partition-count changes affect mapping. Avoid placing sensitive information in keys if they appear in logs or monitoring tools.",
+      "keywords": [
+        "partitioner",
+        "key affinity",
+        "entity ordering",
+        "hot partition",
+        "null key"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-006",
+      "category": "messaging",
+      "title": "Dead letter queues",
+      "text": "A dead letter queue stores messages that cannot be processed successfully after the defined retry policy. It prevents a poison message from blocking healthy work, but it must retain enough metadata to diagnose and safely replay failures. Record the original topic, key, timestamp, failure reason, and attempt count without leaking secrets. Define ownership, alerting, retention, and replay procedures; a DLQ that nobody monitors is a hidden data-loss queue. Correct the underlying defect before replaying a large backlog.",
+      "keywords": [
+        "poison message",
+        "retry exhaustion",
+        "quarantine",
+        "replay",
+        "failure reason"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-007",
+      "category": "messaging",
+      "title": "Message retry strategy",
+      "text": "Message retries handle transient processing failures, but immediate repeated attempts can pin a partition and amplify an outage. Use bounded retries with backoff, and decide whether failed records block later records or move to retry topics. Preserve ordering requirements when routing retries because a later event may overtake an earlier failed event. Make handlers idempotent and send exhausted messages to a monitored dead letter queue. Distinguish transient network errors from permanent schema or validation failures that will not succeed on retry.",
+      "keywords": [
+        "retry topic",
+        "backoff",
+        "poison pill",
+        "consumer blocking",
+        "duplicate delivery"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-008",
+      "category": "messaging",
+      "title": "Event schema evolution",
+      "text": "Event schema evolution lets producers and consumers change independently without breaking existing data readers. Additive optional fields are often safer than renaming or changing the meaning of existing fields, but compatibility rules depend on the serialization format and registry policy. Deploy consumers that tolerate the new shape before producers emit it, and retain defaults for old records where needed. Treat events as durable contracts because historical messages may be replayed months later. Test compatibility against both old and new payloads.",
+      "keywords": [
+        "schema registry",
+        "backward compatibility",
+        "optional field",
+        "consumer-first rollout",
+        "Avro"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-009",
+      "category": "messaging",
+      "title": "Message ordering",
+      "text": "Message ordering determines whether consumers observe events in the sequence required by the business process. Kafka guarantees order within one partition, so related events generally need a shared key and partition. Parallel consumers, retry topics, asynchronous handlers, and multiple producers can still reorder completion or business effects. If global order is truly required, it limits parallelism and should be justified explicitly. Use sequence numbers or version checks when consumers must detect stale or out-of-order updates.",
+      "keywords": [
+        "partition order",
+        "sequence number",
+        "per-key ordering",
+        "concurrent consumers",
+        "retry reorder"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "messaging-010",
+      "category": "messaging",
+      "title": "Asynchronous messaging",
+      "text": "Asynchronous messaging allows a producer to hand work to a broker without waiting for the consumer to finish. It improves decoupling and can absorb bursts, but introduces eventual consistency, duplicate delivery, backlog management, and new failure paths. Define acknowledgement behavior, message durability, schema contracts, idempotency, and dead-letter handling. Backpressure and queue-age alarms matter because a growing backlog can turn a brief slowdown into stale business data. Use synchronous calls when immediate results and simpler consistency are more important than decoupling.",
+      "keywords": [
+        "producer consumer",
+        "queue",
+        "broker",
+        "eventual consistency",
+        "backpressure",
+        "acknowledgement"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-001",
+      "category": "observability",
+      "title": "Structured logging",
+      "text": "Structured logging records events as fields such as timestamp, severity, service, request ID, and error code rather than relying only on free-form text. Consistent JSON fields make filtering and aggregation more reliable across services. Keep field names stable, avoid high-cardinality values where they damage indexing cost, and never log passwords, access tokens, or unnecessary personal data. Include enough context to diagnose failures without duplicating entire payloads. Correlate logs with traces and metrics and define retention appropriate to operational and compliance needs.",
+      "keywords": [
+        "JSON logs",
+        "severity",
+        "fields",
+        "trace ID",
+        "cardinality",
+        "sensitive data"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-002",
+      "category": "observability",
+      "title": "Application metrics",
+      "text": "Application metrics summarize behavior over time using counters, gauges, and distributions such as histograms. Counters suit cumulative events, gauges represent current values, and histograms support latency and size distributions. Use bounded labels such as route template rather than raw user IDs or URLs to prevent cardinality explosions. Instrument request rate, error rate, latency, saturation, and key business outcomes. Metrics show aggregate symptoms but usually need traces or logs to explain an individual request failure.",
+      "keywords": [
+        "counter",
+        "gauge",
+        "histogram",
+        "latency percentile",
+        "cardinality",
+        "Prometheus"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-003",
+      "category": "observability",
+      "title": "Distributed tracing",
+      "text": "Distributed tracing follows a request across services through a trace composed of spans. Correct context propagation across HTTP and messaging boundaries is essential; otherwise one logical request becomes disconnected traces. Span attributes should identify operations without creating unbounded cardinality or leaking sensitive values. Sampling balances diagnostic value with storage and ingestion cost, while tail-based sampling can retain traces with errors or high latency. Use trace timing to find the critical path and distinguish time spent waiting on downstream dependencies from local processing.",
+      "keywords": [
+        "trace",
+        "span",
+        "parent context",
+        "propagation",
+        "sampling",
+        "critical path"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-004",
+      "category": "observability",
+      "title": "Correlation IDs",
+      "text": "A correlation ID links logs and events that belong to the same request or business operation. Generate or validate the identifier at a trusted boundary, propagate it through downstream calls and message headers, and include it in structured logs and error responses when appropriate. A correlation ID is not a substitute for distributed tracing because it does not automatically capture span timing or parent-child relationships. Do not trust arbitrary inbound values for security decisions, and avoid using a unique ID as a high-cardinality metric label.",
+      "keywords": [
+        "request ID",
+        "trace context",
+        "log propagation",
+        "async message headers",
+        "troubleshooting"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-005",
+      "category": "observability",
+      "title": "Health checks",
+      "text": "Health checks provide machine-readable signals about whether a process is alive, initialized, or ready to serve traffic. Liveness should detect a process that cannot recover without restart; readiness should prevent traffic reaching an instance that cannot safely handle requests. Including every downstream dependency in liveness can cause restart cascades during an external outage. Keep probes fast, use startup checks for slow initialization, and test them during dependency degradation and overload.",
+      "keywords": [
+        "liveness",
+        "readiness",
+        "startup check",
+        "dependency probe",
+        "false positive"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-006",
+      "category": "observability",
+      "title": "Alerting strategy",
+      "text": "An alert should indicate a user-impacting symptom or a risk requiring timely action, not merely that a metric changed. Prefer alerts tied to service objectives, error-budget burn, sustained saturation, or failed critical workflows over dozens of isolated host thresholds. Include severity, ownership, runbook, and relevant dashboards, and tune for actionable signal rather than volume. Group related alerts during a common incident and review false positives and missed incidents after events. Paging should be reserved for conditions that require immediate human response.",
+      "keywords": [
+        "actionable alert",
+        "threshold",
+        "burn rate",
+        "noise",
+        "on-call",
+        "escalation"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-007",
+      "category": "observability",
+      "title": "SLI SLO and error budgets",
+      "text": "A service level indicator measures a user-relevant outcome such as successful request ratio or latency. A service level objective defines the target over a window, and the error budget is the permitted unreliability implied by that target. SLOs help teams balance release speed against reliability work when an error budget is consumed too quickly. Choose indicators that reflect real user experience, define valid traffic and exclusions explicitly, and use multi-window burn-rate alerts for rapid detection. An SLA is a contractual commitment and is not synonymous with an internal SLO.",
+      "keywords": [
+        "service level indicator",
+        "objective",
+        "availability",
+        "latency percentile",
+        "burn rate"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-008",
+      "category": "observability",
+      "title": "Log aggregation",
+      "text": "Log aggregation collects application and infrastructure logs into a searchable central system. A robust pipeline handles parsing, timestamps, buffering, backpressure, and temporary destination outages without silently dropping critical events. Retention and indexing policies affect both incident response and cost, while access controls protect sensitive log content. Normalize common fields and use sampling or filtering carefully so that high-volume noise does not crowd out useful diagnostics. Monitor ingestion lag and dropped-log counters as well as application health.",
+      "keywords": [
+        "centralized logs",
+        "ingestion pipeline",
+        "parsing",
+        "retention",
+        "index cost",
+        "access control"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-009",
+      "category": "observability",
+      "title": "Resource saturation",
+      "text": "Resource saturation occurs when a constrained resource cannot meet demand, often causing latency to rise before outright failures appear. CPU utilization alone is insufficient: memory pressure, disk I/O wait, connection pools, thread pools, queues, and network limits can all be bottlenecks. Look for rising queue depth, throttling, wait time, and tail latency correlated with load. Capacity planning should use representative traffic and headroom, and scaling the wrong tier can increase cost without relieving the actual constraint.",
+      "keywords": [
+        "CPU utilization",
+        "memory pressure",
+        "disk I/O",
+        "queue depth",
+        "throttling",
+        "utilization"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "observability-010",
+      "category": "observability",
+      "title": "Incident dashboards",
+      "text": "An incident dashboard should quickly answer whether users are affected, when the change began, and which dependency or resource is responsible. Put request rate, error rate, latency, and saturation near the top, then provide drill-downs by service, route, region, and dependency. Annotate deployments and configuration changes so responders can correlate symptoms with recent changes. Avoid a wall of unrelated graphs and ensure units, time ranges, and alert thresholds are clear. Validate dashboards during exercises rather than discovering missing telemetry during an outage.",
+      "keywords": [
+        "golden signals",
+        "deployment markers",
+        "dependency health",
+        "drill-down",
+        "time range"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-001",
+      "category": "performance",
+      "title": "Application caching",
+      "text": "Application caching stores the result of expensive work so repeated requests can be served faster. Effective caching depends on a useful hit ratio, correct cache keys, freshness requirements, and an invalidation strategy. A cache stampede occurs when many requests recompute an expired popular value at once; request coalescing, jittered TTLs, or stale-while-revalidate can help. Distributed caches add network and availability costs, while local caches can diverge across instances. Measure end-to-end latency and backend load rather than treating hit ratio as the only success metric.",
+      "keywords": [
+        "cache hit ratio",
+        "TTL",
+        "invalidation",
+        "cache stampede",
+        "stale value"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-002",
+      "category": "performance",
+      "title": "HTTP connection pooling",
+      "text": "HTTP connection pooling reuses TCP and often TLS connections across requests, reducing handshake overhead and port churn. Pool limits, per-route concurrency, idle timeouts, and connection lifetime affect throughput and failure behavior. Too few connections create wait queues; too many can overload downstream services or exhaust sockets. Reuse clients instead of constructing a new client for every request, and align pool timeouts with request deadlines and server limits. Monitor pool pending requests, connection acquisition latency, reuse rate, and stale-connection errors.",
+      "keywords": [
+        "keep-alive",
+        "TCP handshake",
+        "TLS handshake",
+        "max connections",
+        "idle timeout"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-003",
+      "category": "performance",
+      "title": "Latency profiling",
+      "text": "Latency profiling decomposes response time to find where requests spend time. Percentiles such as p95 and p99 reveal slow-tail behavior hidden by averages, while traces and profilers identify blocking calls, lock waits, allocation, or downstream delays. Little's Law relates concurrency, throughput, and time in a stable system, helping explain queue growth. Profile representative workloads and compare before and after changes; microbenchmarks can mislead when production contention or I/O dominates. Optimize the measured critical path rather than the code that merely looks expensive.",
+      "keywords": [
+        "p50 p95 p99",
+        "flame graph",
+        "critical path",
+        "queueing delay",
+        "tail latency"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-004",
+      "category": "performance",
+      "title": "Load testing",
+      "text": "Load testing measures system behavior under controlled traffic to find capacity limits and performance regressions. Define realistic request mixes, data volumes, arrival rates, concurrency, and success criteria before running the test. A closed-loop client can hide overload because it sends fewer requests as responses slow; open-loop arrival-rate tests can expose queueing under fixed demand. Include ramp, steady-state, and soak phases, and monitor dependencies as well as the target service. Avoid running destructive or production-scale tests without explicit safeguards.",
+      "keywords": [
+        "arrival rate",
+        "concurrency",
+        "ramp-up",
+        "soak test",
+        "saturation",
+        "open-loop test"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-005",
+      "category": "performance",
+      "title": "CPU profiling",
+      "text": "CPU profiling identifies where processor time is spent by sampling stacks or instrumenting execution. A flame graph visualizes aggregated stack samples; wide frames often indicate hot functions, but interpretation depends on whether the profile measures CPU or wall-clock time. Profile under representative load and distinguish application computation from runtime, garbage collection, and kernel work. Optimize high-cost paths and remeasure, because removing one bottleneck often reveals another. Avoid drawing conclusions from a single short profile dominated by startup or background activity.",
+      "keywords": [
+        "sampling profiler",
+        "flame graph",
+        "hot path",
+        "allocation",
+        "wall-clock versus CPU time"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-006",
+      "category": "performance",
+      "title": "Memory profiling",
+      "text": "Memory profiling distinguishes high allocation rate from retained objects that remain reachable longer than intended. Allocation profiles identify code creating many objects, while heap dumps and dominator trees help locate references keeping large object graphs alive. A rising heap after garbage collection can suggest retention, whereas frequent collections with a stable live set may indicate churn. Reproduce with realistic traffic, compare snapshots, and inspect caches, listeners, thread locals, and queues. Increase heap only after checking container limits and the actual memory failure mode.",
+      "keywords": [
+        "heap dump",
+        "allocation profile",
+        "retained size",
+        "leak",
+        "object churn",
+        "dominator tree"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-007",
+      "category": "performance",
+      "title": "API pagination",
+      "text": "API pagination limits response size and database work when clients browse large result sets. Offset pagination is simple but can become expensive at deep offsets and may skip or repeat rows as data changes. Cursor pagination uses a stable sort key and continuation token, often improving large sequential scans but complicating arbitrary page jumps. Set maximum page sizes, use deterministic ordering, and bind cursors to filters or tenant context so they cannot be reused incorrectly. Test behavior when rows are inserted or deleted between requests.",
+      "keywords": [
+        "cursor pagination",
+        "offset pagination",
+        "page size",
+        "stable sort",
+        "deep page"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-008",
+      "category": "performance",
+      "title": "Response compression",
+      "text": "Response compression reduces bytes transferred for compressible payloads such as JSON, HTML, and text, often improving network-bound latency. It consumes CPU and may provide little benefit for already compressed images, archives, or encrypted data. Negotiate supported encodings correctly, set sensible size thresholds, and avoid compressing secret and attacker-controlled content together in ways that can expose length side channels. Measure transfer time, CPU utilization, and payload size under realistic traffic before enabling compression globally.",
+      "keywords": [
+        "gzip",
+        "Brotli",
+        "CPU trade-off",
+        "content encoding",
+        "payload size",
+        "already compressed media"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-009",
+      "category": "performance",
+      "title": "Asynchronous processing",
+      "text": "Asynchronous processing moves slow or nonessential work out of a request's critical path and executes it through a worker or queue. It can improve response latency but introduces job durability, retries, idempotency, ordering, and user-visible status requirements. Return a task identifier when clients need to poll or receive completion notifications. Bound queues and apply backpressure so accepted work does not grow without limit. Monitor queue age, processing duration, failure rate, and dead-letter volume, and define what happens when a job is permanently unsuccessful.",
+      "keywords": [
+        "work queue",
+        "background job",
+        "backpressure",
+        "acknowledgement",
+        "task id",
+        "eventual result"
+      ],
+      "aliases": []
+    },
+    {
+      "id": "performance-010",
+      "category": "performance",
+      "title": "Capacity planning",
+      "text": "Capacity planning estimates the resources required to meet expected demand with acceptable latency and reliability. Use measured throughput, resource consumption, workload seasonality, growth forecasts, and failure scenarios rather than extrapolating from average CPU alone. Identify the limiting tier and preserve headroom for traffic spikes and instance loss. Scaling policies, quotas, database connection limits, and downstream dependencies can constrain effective capacity. Revisit assumptions after architectural changes and validate forecasts with load tests and production telemetry.",
+      "keywords": [
+        "throughput",
+        "headroom",
+        "growth forecast",
+        "bottleneck",
+        "saturation",
+        "load test"
+      ],
+      "aliases": []
+    }
+  ]
+}

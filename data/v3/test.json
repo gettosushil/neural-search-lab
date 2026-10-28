@@ -1,0 +1,804 @@
+{
+  "pairs": [
+    {
+      "query": "How would you investigate and fix a real incident involving collection iteration and duplicates?",
+      "document_id": "java-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Java List Set Map choice?",
+      "document_id": "java-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving hash collision performance?",
+      "document_id": "java-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for HashMap lookup failures?",
+      "document_id": "java-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving closing resources after failure?",
+      "document_id": "java-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Java try catch finally?",
+      "document_id": "java-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving ExecutorService lifecycle?",
+      "document_id": "java-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Java thread pools?",
+      "document_id": "java-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving ReentrantLock visibility?",
+      "document_id": "java-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Java monitor contention?",
+      "document_id": "java-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving GC allocation pressure?",
+      "document_id": "java-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for JVM pause times?",
+      "document_id": "java-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving native memory in JVM?",
+      "document_id": "java-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for OutOfMemoryError metaspace?",
+      "document_id": "java-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving Java stream terminal operation?",
+      "document_id": "java-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for map filter collect pipeline?",
+      "document_id": "java-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving async exception handling?",
+      "document_id": "java-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for thenCompose versus thenApply?",
+      "document_id": "java-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving mutable map key problem?",
+      "document_id": "java-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for immutable Java DTO?",
+      "document_id": "java-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving multiple bean implementations?",
+      "document_id": "spring-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Spring IoC container?",
+      "document_id": "spring-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving paginated REST endpoint?",
+      "document_id": "spring-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Spring controller status codes?",
+      "document_id": "spring-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving externalized secrets?",
+      "document_id": "spring-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Spring profiles environment variables?",
+      "document_id": "spring-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving expose application metrics?",
+      "document_id": "spring-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Actuator health endpoint security?",
+      "document_id": "spring-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving lazy entity serialization?",
+      "document_id": "spring-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for JPA N plus one?",
+      "document_id": "spring-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving database call inside transaction?",
+      "document_id": "spring-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for transaction rollback checked exception?",
+      "document_id": "spring-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving stale cached response?",
+      "document_id": "spring-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for cache invalidation after update?",
+      "document_id": "spring-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving method security tests?",
+      "document_id": "spring-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Spring filter chain authorization?",
+      "document_id": "spring-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving cross field validation?",
+      "document_id": "spring-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for @Valid request body?",
+      "document_id": "spring-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving application context test speed?",
+      "document_id": "spring-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Spring slice tests?",
+      "document_id": "spring-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving gateway timeout configuration?",
+      "document_id": "microservices-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for edge routing service aggregation?",
+      "document_id": "microservices-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving discover replacement instances?",
+      "document_id": "microservices-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for service registry health?",
+      "document_id": "microservices-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving circuit breaker metrics?",
+      "document_id": "microservices-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for open half open circuit breaker?",
+      "document_id": "microservices-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving recover failed distributed business flow?",
+      "document_id": "microservices-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for compensating transaction workflow?",
+      "document_id": "microservices-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving idempotent write retry?",
+      "document_id": "microservices-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for retry backoff jitter?",
+      "document_id": "microservices-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving prevent queue exhaustion?",
+      "document_id": "microservices-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for isolate slow dependency?",
+      "document_id": "microservices-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving safe client retries?",
+      "document_id": "microservices-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for duplicate payment request?",
+      "document_id": "microservices-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving feature flag rollout?",
+      "document_id": "microservices-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for centralized service settings?",
+      "document_id": "microservices-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving version REST contract?",
+      "document_id": "microservices-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for backward compatible API change?",
+      "document_id": "microservices-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving consumer schema contract?",
+      "document_id": "microservices-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for outbox event publishing?",
+      "document_id": "microservices-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving EC2 network performance?",
+      "document_id": "aws-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for EC2 instance sizing?",
+      "document_id": "aws-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving private S3 downloads?",
+      "document_id": "aws-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for S3 bucket access denied?",
+      "document_id": "aws-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving duplicate event processing?",
+      "document_id": "aws-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Lambda concurrency throttling?",
+      "document_id": "aws-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving task role versus execution role?",
+      "document_id": "aws-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for ECS task stopped reason?",
+      "document_id": "aws-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving read replica lag?",
+      "document_id": "aws-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for RDS connection exhaustion?",
+      "document_id": "aws-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving TLS listener certificate?",
+      "document_id": "aws-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for ALB unhealthy targets?",
+      "document_id": "aws-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving security group versus network ACL?",
+      "document_id": "aws-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for private subnet outbound traffic?",
+      "document_id": "aws-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving least privilege AWS role?",
+      "document_id": "aws-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for IAM AssumeRole denied?",
+      "document_id": "aws-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving cache invalidation not working?",
+      "document_id": "aws-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for CloudFront cache miss?",
+      "document_id": "aws-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving autoscaling health replacement?",
+      "document_id": "aws-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for EC2 scale out policy?",
+      "document_id": "aws-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving index slows writes?",
+      "document_id": "database-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for composite index column order?",
+      "document_id": "database-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving SQL join cardinality?",
+      "document_id": "database-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for left join returns missing rows?",
+      "document_id": "database-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving atomic database changes?",
+      "document_id": "database-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for transaction isolation anomaly?",
+      "document_id": "database-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving row lock contention?",
+      "document_id": "database-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for database lock wait?",
+      "document_id": "database-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving database join order optimization?",
+      "document_id": "database-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for EXPLAIN ANALYZE slow SQL?",
+      "document_id": "database-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving right size Hikari pool?",
+      "document_id": "database-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for pool pending connection timeout?",
+      "document_id": "database-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving when denormalization is acceptable?",
+      "document_id": "database-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for update anomaly relational schema?",
+      "document_id": "database-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving replication lag monitoring?",
+      "document_id": "database-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for stale read replica?",
+      "document_id": "database-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving conditional SQL update?",
+      "document_id": "database-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for lost update version column?",
+      "document_id": "database-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving table retention by partition?",
+      "document_id": "database-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for partition pruning date range?",
+      "document_id": "database-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving scan container image?",
+      "document_id": "containers-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Docker layer cache?",
+      "document_id": "containers-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving Docker port mapping?",
+      "document_id": "containers-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for container exits on SIGTERM?",
+      "document_id": "containers-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving backup Docker volume?",
+      "document_id": "containers-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for data disappears when container recreated?",
+      "document_id": "containers-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving pod lifecycle shared network?",
+      "document_id": "containers-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for pod scheduling pending?",
+      "document_id": "containers-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving readiness fails during rolling update?",
+      "document_id": "containers-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Kubernetes rollout stuck?",
+      "document_id": "containers-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving selector targetPort mismatch?",
+      "document_id": "containers-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Service has no endpoints?",
+      "document_id": "containers-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving rotate mounted credentials?",
+      "document_id": "containers-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Kubernetes secret base64 security?",
+      "document_id": "containers-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving Kubernetes metrics server?",
+      "document_id": "containers-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for HPA does not scale?",
+      "document_id": "containers-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving slow startup probe?",
+      "document_id": "containers-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for liveness restart loop?",
+      "document_id": "containers-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving requests and limits sizing?",
+      "document_id": "containers-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for CPU throttling high latency?",
+      "document_id": "containers-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving access token scopes?",
+      "document_id": "security-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for OAuth authorization code PKCE?",
+      "document_id": "security-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving verify identity provider token?",
+      "document_id": "security-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for ID token versus access token?",
+      "document_id": "security-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving JWT payload is not encrypted?",
+      "document_id": "security-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for JWT signature verification?",
+      "document_id": "security-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving identity versus permissions?",
+      "document_id": "security-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for user logged in but forbidden?",
+      "document_id": "security-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving mutual TLS client certificate?",
+      "document_id": "security-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for TLS certificate hostname mismatch?",
+      "document_id": "security-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving rainbow table defense?",
+      "document_id": "security-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for secure password storage?",
+      "document_id": "security-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving tenant scoped access policy?",
+      "document_id": "security-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for role permission mapping?",
+      "document_id": "security-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving distributed API throttling?",
+      "document_id": "security-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for HTTP 429 quota?",
+      "document_id": "security-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving secret exposed in logs?",
+      "document_id": "security-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for rotate API credentials?",
+      "document_id": "security-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving DOM innerHTML vulnerability?",
+      "document_id": "security-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for stored XSS in comments?",
+      "document_id": "security-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving topic retention and replication?",
+      "document_id": "messaging-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Kafka partition ordering?",
+      "document_id": "messaging-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving Kafka lag by group?",
+      "document_id": "messaging-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for consumer group rebalance?",
+      "document_id": "messaging-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving auto commit data loss?",
+      "document_id": "messaging-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for commit offset after processing?",
+      "document_id": "messaging-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving Kafka delivery guarantee?",
+      "document_id": "messaging-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for at least once versus exactly once?",
+      "document_id": "messaging-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving null message key partitioning?",
+      "document_id": "messaging-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Kafka key for per entity order?",
+      "document_id": "messaging-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving monitor DLQ failures?",
+      "document_id": "messaging-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for poison message quarantine?",
+      "document_id": "messaging-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving message retry reorders events?",
+      "document_id": "messaging-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for retry topic with backoff?",
+      "document_id": "messaging-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving schema registry compatibility?",
+      "document_id": "messaging-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for backward compatible event schema?",
+      "document_id": "messaging-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving retry breaks event order?",
+      "document_id": "messaging-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for Kafka records processed out of order?",
+      "document_id": "messaging-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving broker acknowledgement durability?",
+      "document_id": "messaging-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for queue absorbs traffic burst?",
+      "document_id": "messaging-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving correlate structured log fields?",
+      "document_id": "observability-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for JSON application logs?",
+      "document_id": "observability-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving p95 latency metric?",
+      "document_id": "observability-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for histogram versus gauge?",
+      "document_id": "observability-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving tail based trace sampling?",
+      "document_id": "observability-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for trace context lost downstream?",
+      "document_id": "observability-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving correlation ID versus trace?",
+      "document_id": "observability-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for propagate request ID in messages?",
+      "document_id": "observability-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving startup probe slow app?",
+      "document_id": "observability-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for readiness endpoint fails?",
+      "document_id": "observability-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving error budget burn alert?",
+      "document_id": "observability-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for too many noisy alerts?",
+      "document_id": "observability-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving SLI SLO SLA difference?",
+      "document_id": "observability-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for define service availability SLO?",
+      "document_id": "observability-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving dropped logs pipeline?",
+      "document_id": "observability-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for central log ingestion lag?",
+      "document_id": "observability-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving resource saturation diagnosis?",
+      "document_id": "observability-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for queue depth and latency rise?",
+      "document_id": "observability-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving golden signals dashboard?",
+      "document_id": "observability-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for dashboard for production incident?",
+      "document_id": "observability-010"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving cache key correctness?",
+      "document_id": "performance-001"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for cache stampede after TTL?",
+      "document_id": "performance-001"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving keep alive pool sizing?",
+      "document_id": "performance-002"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for HTTP client creates new sockets?",
+      "document_id": "performance-002"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving find blocking critical path?",
+      "document_id": "performance-003"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for p99 latency regression?",
+      "document_id": "performance-003"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving load test saturation point?",
+      "document_id": "performance-004"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for fixed arrival rate load test?",
+      "document_id": "performance-004"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving high CPU diagnosis?",
+      "document_id": "performance-005"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for CPU flame graph hot method?",
+      "document_id": "performance-005"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving find reference keeping objects alive?",
+      "document_id": "performance-006"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for heap dump retained objects?",
+      "document_id": "performance-006"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving maximum API page size?",
+      "document_id": "performance-007"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for deep offset pagination slow?",
+      "document_id": "performance-007"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving already compressed image payload?",
+      "document_id": "performance-008"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for gzip JSON response?",
+      "document_id": "performance-008"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving backpressure worker queue?",
+      "document_id": "performance-009"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for background job queue growth?",
+      "document_id": "performance-009"
+    },
+    {
+      "query": "How would you investigate and fix a real incident involving database bottleneck under load?",
+      "document_id": "performance-010"
+    },
+    {
+      "query": "What are the important limits, edge cases, and operational signals for forecast peak throughput?",
+      "document_id": "performance-010"
+    }
+  ]
+}

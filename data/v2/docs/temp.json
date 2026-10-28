@@ -1,0 +1,13 @@
+{
+    "id": "java-006",
+    "category": "java",
+    "title": "Garbage collection",
+    "text": "Garbage collection is an important java engineering concept used in production software systems. Engineers should understand its purpose, operating behavior, trade-offs, failure modes, configuration, and appropriate use cases. Good implementations rely on measurement, clear boundaries, safe defaults, testing, and operational monitoring rather than treating the technique as a universal solution."
+  },
+  
+  {
+    "id": "aws-002",
+    "category": "aws",
+    "title": "S3 object storage",
+    "text": "S3 object storage is an important aws engineering concept used in production software systems. Engineers should understand its purpose, operating behavior, trade-offs, failure modes, configuration, and appropriate use cases. Good implementations rely on measurement, clear boundaries, safe defaults, testing, and operational monitoring rather than treating the technique as a universal solution."
+  }

@@ -1,0 +1,804 @@
+{
+  "pairs": [
+    {
+      "query": "A production system is behaving unexpectedly around ArrayList versus HashSet; help me reason about it.",
+      "document_id": "java-001"
+    },
+    {
+      "query": "Which practices make collections framework reliable and maintainable?",
+      "document_id": "java-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around hashCode equals contract; help me reason about it.",
+      "document_id": "java-002"
+    },
+    {
+      "query": "Which practices make hashmap and hashing reliable and maintainable?",
+      "document_id": "java-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around checked versus unchecked exceptions; help me reason about it.",
+      "document_id": "java-003"
+    },
+    {
+      "query": "Which practices make exception handling reliable and maintainable?",
+      "document_id": "java-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around race condition between threads; help me reason about it.",
+      "document_id": "java-004"
+    },
+    {
+      "query": "Which practices make multithreading reliable and maintainable?",
+      "document_id": "java-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around deadlock between synchronized blocks; help me reason about it.",
+      "document_id": "java-005"
+    },
+    {
+      "query": "Which practices make synchronization and locks reliable and maintainable?",
+      "document_id": "java-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Java heap retention; help me reason about it.",
+      "document_id": "java-006"
+    },
+    {
+      "query": "Which practices make garbage collection reliable and maintainable?",
+      "document_id": "java-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Java stack versus heap; help me reason about it.",
+      "document_id": "java-007"
+    },
+    {
+      "query": "Which practices make jvm memory areas reliable and maintainable?",
+      "document_id": "java-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around parallel stream performance; help me reason about it.",
+      "document_id": "java-008"
+    },
+    {
+      "query": "Which practices make streams reliable and maintainable?",
+      "document_id": "java-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around CompletableFuture timeout; help me reason about it.",
+      "document_id": "java-009"
+    },
+    {
+      "query": "Which practices make completablefuture reliable and maintainable?",
+      "document_id": "java-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around record defensive copy; help me reason about it.",
+      "document_id": "java-010"
+    },
+    {
+      "query": "Which practices make records and immutability reliable and maintainable?",
+      "document_id": "java-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around constructor injection testing; help me reason about it.",
+      "document_id": "spring-001"
+    },
+    {
+      "query": "Which practices make dependency injection reliable and maintainable?",
+      "document_id": "spring-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around REST DTO validation; help me reason about it.",
+      "document_id": "spring-002"
+    },
+    {
+      "query": "Which practices make rest apis reliable and maintainable?",
+      "document_id": "spring-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around typed configuration properties; help me reason about it.",
+      "document_id": "spring-003"
+    },
+    {
+      "query": "Which practices make external configuration reliable and maintainable?",
+      "document_id": "spring-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Spring readiness probes; help me reason about it.",
+      "document_id": "spring-004"
+    },
+    {
+      "query": "Which practices make actuator reliable and maintainable?",
+      "document_id": "spring-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Spring repository query plan; help me reason about it.",
+      "document_id": "spring-005"
+    },
+    {
+      "query": "Which practices make spring data jpa reliable and maintainable?",
+      "document_id": "spring-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Spring self invocation transactional; help me reason about it.",
+      "document_id": "spring-006"
+    },
+    {
+      "query": "Which practices make transaction management reliable and maintainable?",
+      "document_id": "spring-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Spring Cacheable key; help me reason about it.",
+      "document_id": "spring-007"
+    },
+    {
+      "query": "Which practices make spring caching reliable and maintainable?",
+      "document_id": "spring-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around CSRF and bearer token; help me reason about it.",
+      "document_id": "spring-008"
+    },
+    {
+      "query": "Which practices make spring security reliable and maintainable?",
+      "document_id": "spring-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around custom Bean Validation constraint; help me reason about it.",
+      "document_id": "spring-009"
+    },
+    {
+      "query": "Which practices make bean validation reliable and maintainable?",
+      "document_id": "spring-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Testcontainers database tests; help me reason about it.",
+      "document_id": "spring-010"
+    },
+    {
+      "query": "Which practices make spring boot testing reliable and maintainable?",
+      "document_id": "spring-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around gateway TLS rate limiting; help me reason about it.",
+      "document_id": "microservices-001"
+    },
+    {
+      "query": "Which practices make api gateway reliable and maintainable?",
+      "document_id": "microservices-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around DNS service lookup; help me reason about it.",
+      "document_id": "microservices-002"
+    },
+    {
+      "query": "Which practices make service discovery reliable and maintainable?",
+      "document_id": "microservices-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around dependency failure protection; help me reason about it.",
+      "document_id": "microservices-003"
+    },
+    {
+      "query": "Which practices make circuit breaker reliable and maintainable?",
+      "document_id": "microservices-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Saga orchestration versus choreography; help me reason about it.",
+      "document_id": "microservices-004"
+    },
+    {
+      "query": "Which practices make saga distributed transactions reliable and maintainable?",
+      "document_id": "microservices-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around avoid retry storm; help me reason about it.",
+      "document_id": "microservices-005"
+    },
+    {
+      "query": "Which practices make retry strategy reliable and maintainable?",
+      "document_id": "microservices-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around bounded worker pool; help me reason about it.",
+      "document_id": "microservices-006"
+    },
+    {
+      "query": "Which practices make bulkhead isolation reliable and maintainable?",
+      "document_id": "microservices-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around idempotency key storage; help me reason about it.",
+      "document_id": "microservices-007"
+    },
+    {
+      "query": "Which practices make idempotency reliable and maintainable?",
+      "document_id": "microservices-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around rotate configuration safely; help me reason about it.",
+      "document_id": "microservices-008"
+    },
+    {
+      "query": "Which practices make configuration management reliable and maintainable?",
+      "document_id": "microservices-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around deprecate old endpoint; help me reason about it.",
+      "document_id": "microservices-009"
+    },
+    {
+      "query": "Which practices make api versioning reliable and maintainable?",
+      "document_id": "microservices-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around eventual consistency across services; help me reason about it.",
+      "document_id": "microservices-010"
+    },
+    {
+      "query": "Which practices make event-driven architecture reliable and maintainable?",
+      "document_id": "microservices-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around instance profile permissions; help me reason about it.",
+      "document_id": "aws-001"
+    },
+    {
+      "query": "Which practices make ec2 virtual machines reliable and maintainable?",
+      "document_id": "aws-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around object version recovery; help me reason about it.",
+      "document_id": "aws-002"
+    },
+    {
+      "query": "Which practices make s3 object storage reliable and maintainable?",
+      "document_id": "aws-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around cold start latency; help me reason about it.",
+      "document_id": "aws-003"
+    },
+    {
+      "query": "Which practices make lambda functions reliable and maintainable?",
+      "document_id": "aws-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Fargate service deployment; help me reason about it.",
+      "document_id": "aws-004"
+    },
+    {
+      "query": "Which practices make ecs fargate containers reliable and maintainable?",
+      "document_id": "aws-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Multi AZ failover; help me reason about it.",
+      "document_id": "aws-005"
+    },
+    {
+      "query": "Which practices make rds databases reliable and maintainable?",
+      "document_id": "aws-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around path based routing; help me reason about it.",
+      "document_id": "aws-006"
+    },
+    {
+      "query": "Which practices make application load balancer reliable and maintainable?",
+      "document_id": "aws-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around route table internet gateway; help me reason about it.",
+      "document_id": "aws-007"
+    },
+    {
+      "query": "Which practices make vpc networking reliable and maintainable?",
+      "document_id": "aws-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around trust policy versus permission policy; help me reason about it.",
+      "document_id": "aws-008"
+    },
+    {
+      "query": "Which practices make iam roles and policies reliable and maintainable?",
+      "document_id": "aws-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around private S3 origin; help me reason about it.",
+      "document_id": "aws-009"
+    },
+    {
+      "query": "Which practices make cloudfront cdn reliable and maintainable?",
+      "document_id": "aws-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around target tracking scaling; help me reason about it.",
+      "document_id": "aws-010"
+    },
+    {
+      "query": "Which practices make auto scaling reliable and maintainable?",
+      "document_id": "aws-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around why index is not used; help me reason about it.",
+      "document_id": "database-001"
+    },
+    {
+      "query": "Which practices make database indexes reliable and maintainable?",
+      "document_id": "database-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around duplicate rows after join; help me reason about it.",
+      "document_id": "database-002"
+    },
+    {
+      "query": "Which practices make sql joins reliable and maintainable?",
+      "document_id": "database-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around rollback database update; help me reason about it.",
+      "document_id": "database-003"
+    },
+    {
+      "query": "Which practices make acid transactions reliable and maintainable?",
+      "document_id": "database-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around deadlock diagnostic; help me reason about it.",
+      "document_id": "database-004"
+    },
+    {
+      "query": "Which practices make database locking reliable and maintainable?",
+      "document_id": "database-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around bad query plan estimate; help me reason about it.",
+      "document_id": "database-005"
+    },
+    {
+      "query": "Which practices make query optimization reliable and maintainable?",
+      "document_id": "database-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around database connection leak; help me reason about it.",
+      "document_id": "database-006"
+    },
+    {
+      "query": "Which practices make connection pooling reliable and maintainable?",
+      "document_id": "database-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around third normal form; help me reason about it.",
+      "document_id": "database-007"
+    },
+    {
+      "query": "Which practices make normalization reliable and maintainable?",
+      "document_id": "database-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around database failover promotion; help me reason about it.",
+      "document_id": "database-008"
+    },
+    {
+      "query": "Which practices make replication reliable and maintainable?",
+      "document_id": "database-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around optimistic locking conflict; help me reason about it.",
+      "document_id": "database-009"
+    },
+    {
+      "query": "Which practices make optimistic concurrency reliable and maintainable?",
+      "document_id": "database-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around partition key skew; help me reason about it.",
+      "document_id": "database-010"
+    },
+    {
+      "query": "Which practices make partitioning reliable and maintainable?",
+      "document_id": "database-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around multi stage image build; help me reason about it.",
+      "document_id": "containers-001"
+    },
+    {
+      "query": "Which practices make docker images reliable and maintainable?",
+      "document_id": "containers-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around container writable layer persistence; help me reason about it.",
+      "document_id": "containers-002"
+    },
+    {
+      "query": "Which practices make docker containers reliable and maintainable?",
+      "document_id": "containers-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around bind mount versus named volume; help me reason about it.",
+      "document_id": "containers-003"
+    },
+    {
+      "query": "Which practices make docker volumes reliable and maintainable?",
+      "document_id": "containers-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around init container sidecar; help me reason about it.",
+      "document_id": "containers-004"
+    },
+    {
+      "query": "Which practices make kubernetes pods reliable and maintainable?",
+      "document_id": "containers-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around deployment rollback revision; help me reason about it.",
+      "document_id": "containers-005"
+    },
+    {
+      "query": "Which practices make kubernetes deployments reliable and maintainable?",
+      "document_id": "containers-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around ClusterIP versus LoadBalancer; help me reason about it.",
+      "document_id": "containers-006"
+    },
+    {
+      "query": "Which practices make kubernetes services reliable and maintainable?",
+      "document_id": "containers-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around ConfigMap update propagation; help me reason about it.",
+      "document_id": "containers-007"
+    },
+    {
+      "query": "Which practices make configmaps and secrets reliable and maintainable?",
+      "document_id": "containers-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around CPU request affects autoscaling; help me reason about it.",
+      "document_id": "containers-008"
+    },
+    {
+      "query": "Which practices make kubernetes autoscaling reliable and maintainable?",
+      "document_id": "containers-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around readiness versus liveness; help me reason about it.",
+      "document_id": "containers-009"
+    },
+    {
+      "query": "Which practices make readiness and liveness probes reliable and maintainable?",
+      "document_id": "containers-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around container OOMKilled; help me reason about it.",
+      "document_id": "containers-010"
+    },
+    {
+      "query": "Which practices make container resource limits reliable and maintainable?",
+      "document_id": "containers-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around client credentials service to service; help me reason about it.",
+      "document_id": "security-001"
+    },
+    {
+      "query": "Which practices make oauth 2.0 reliable and maintainable?",
+      "document_id": "security-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around OIDC nonce validation; help me reason about it.",
+      "document_id": "security-002"
+    },
+    {
+      "query": "Which practices make openid connect reliable and maintainable?",
+      "document_id": "security-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around wrong audience token; help me reason about it.",
+      "document_id": "security-003"
+    },
+    {
+      "query": "Which practices make jwt tokens reliable and maintainable?",
+      "document_id": "security-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around check resource ownership; help me reason about it.",
+      "document_id": "security-004"
+    },
+    {
+      "query": "Which practices make authentication versus authorization reliable and maintainable?",
+      "document_id": "security-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around HTTPS handshake failure; help me reason about it.",
+      "document_id": "security-005"
+    },
+    {
+      "query": "Which practices make tls and https reliable and maintainable?",
+      "document_id": "security-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Argon2 work factor; help me reason about it.",
+      "document_id": "security-006"
+    },
+    {
+      "query": "Which practices make password hashing reliable and maintainable?",
+      "document_id": "security-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around least privilege RBAC; help me reason about it.",
+      "document_id": "security-007"
+    },
+    {
+      "query": "Which practices make role-based access control reliable and maintainable?",
+      "document_id": "security-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around token bucket burst control; help me reason about it.",
+      "document_id": "security-008"
+    },
+    {
+      "query": "Which practices make api rate limiting reliable and maintainable?",
+      "document_id": "security-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around workload identity secrets; help me reason about it.",
+      "document_id": "security-009"
+    },
+    {
+      "query": "Which practices make secrets management reliable and maintainable?",
+      "document_id": "security-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around safe HTML rendering; help me reason about it.",
+      "document_id": "security-010"
+    },
+    {
+      "query": "Which practices make cross-site scripting prevention reliable and maintainable?",
+      "document_id": "security-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around under replicated partitions; help me reason about it.",
+      "document_id": "messaging-001"
+    },
+    {
+      "query": "Which practices make kafka topics and partitions reliable and maintainable?",
+      "document_id": "messaging-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around more consumers than partitions; help me reason about it.",
+      "document_id": "messaging-002"
+    },
+    {
+      "query": "Which practices make kafka consumer groups reliable and maintainable?",
+      "document_id": "messaging-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Kafka replay duplicate effects; help me reason about it.",
+      "document_id": "messaging-003"
+    },
+    {
+      "query": "Which practices make kafka offsets reliable and maintainable?",
+      "document_id": "messaging-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around duplicate event side effect; help me reason about it.",
+      "document_id": "messaging-004"
+    },
+    {
+      "query": "Which practices make delivery semantics reliable and maintainable?",
+      "document_id": "messaging-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around hot partition caused by key; help me reason about it.",
+      "document_id": "messaging-005"
+    },
+    {
+      "query": "Which practices make kafka message keys reliable and maintainable?",
+      "document_id": "messaging-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around dead letter replay process; help me reason about it.",
+      "document_id": "messaging-006"
+    },
+    {
+      "query": "Which practices make dead letter queues reliable and maintainable?",
+      "document_id": "messaging-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around poison pill blocks partition; help me reason about it.",
+      "document_id": "messaging-007"
+    },
+    {
+      "query": "Which practices make message retry strategy reliable and maintainable?",
+      "document_id": "messaging-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around optional event field default; help me reason about it.",
+      "document_id": "messaging-008"
+    },
+    {
+      "query": "Which practices make event schema evolution reliable and maintainable?",
+      "document_id": "messaging-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around per key ordering guarantee; help me reason about it.",
+      "document_id": "messaging-009"
+    },
+    {
+      "query": "Which practices make message ordering reliable and maintainable?",
+      "document_id": "messaging-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around async consumer backlog; help me reason about it.",
+      "document_id": "messaging-010"
+    },
+    {
+      "query": "Which practices make asynchronous messaging reliable and maintainable?",
+      "document_id": "messaging-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around avoid logging access tokens; help me reason about it.",
+      "document_id": "observability-001"
+    },
+    {
+      "query": "Which practices make structured logging reliable and maintainable?",
+      "document_id": "observability-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around Prometheus label cardinality; help me reason about it.",
+      "document_id": "observability-002"
+    },
+    {
+      "query": "Which practices make application metrics reliable and maintainable?",
+      "document_id": "observability-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around find slow span critical path; help me reason about it.",
+      "document_id": "observability-003"
+    },
+    {
+      "query": "Which practices make distributed tracing reliable and maintainable?",
+      "document_id": "observability-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around find logs for one request; help me reason about it.",
+      "document_id": "observability-004"
+    },
+    {
+      "query": "Which practices make correlation ids reliable and maintainable?",
+      "document_id": "observability-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around dependency health check cascade; help me reason about it.",
+      "document_id": "observability-005"
+    },
+    {
+      "query": "Which practices make health checks reliable and maintainable?",
+      "document_id": "observability-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around actionable on call alert; help me reason about it.",
+      "document_id": "observability-006"
+    },
+    {
+      "query": "Which practices make alerting strategy reliable and maintainable?",
+      "document_id": "observability-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around error budget exhausted; help me reason about it.",
+      "document_id": "observability-007"
+    },
+    {
+      "query": "Which practices make sli slo and error budgets reliable and maintainable?",
+      "document_id": "observability-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around log retention cost; help me reason about it.",
+      "document_id": "observability-008"
+    },
+    {
+      "query": "Which practices make log aggregation reliable and maintainable?",
+      "document_id": "observability-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around CPU not bottleneck memory pressure; help me reason about it.",
+      "document_id": "observability-009"
+    },
+    {
+      "query": "Which practices make resource saturation reliable and maintainable?",
+      "document_id": "observability-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around deployment annotation metrics; help me reason about it.",
+      "document_id": "observability-010"
+    },
+    {
+      "query": "Which practices make incident dashboards reliable and maintainable?",
+      "document_id": "observability-010"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around stale cache invalidation; help me reason about it.",
+      "document_id": "performance-001"
+    },
+    {
+      "query": "Which practices make application caching reliable and maintainable?",
+      "document_id": "performance-001"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around connection acquisition wait; help me reason about it.",
+      "document_id": "performance-002"
+    },
+    {
+      "query": "Which practices make http connection pooling reliable and maintainable?",
+      "document_id": "performance-002"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around flame graph interpretation; help me reason about it.",
+      "document_id": "performance-003"
+    },
+    {
+      "query": "Which practices make latency profiling reliable and maintainable?",
+      "document_id": "performance-003"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around soak test memory growth; help me reason about it.",
+      "document_id": "performance-004"
+    },
+    {
+      "query": "Which practices make load testing reliable and maintainable?",
+      "document_id": "performance-004"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around sampling profiler wall clock; help me reason about it.",
+      "document_id": "performance-005"
+    },
+    {
+      "query": "Which practices make cpu profiling reliable and maintainable?",
+      "document_id": "performance-005"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around allocation churn versus memory leak; help me reason about it.",
+      "document_id": "performance-006"
+    },
+    {
+      "query": "Which practices make memory profiling reliable and maintainable?",
+      "document_id": "performance-006"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around cursor token stable ordering; help me reason about it.",
+      "document_id": "performance-007"
+    },
+    {
+      "query": "Which practices make api pagination reliable and maintainable?",
+      "document_id": "performance-007"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around compression increases CPU; help me reason about it.",
+      "document_id": "performance-008"
+    },
+    {
+      "query": "Which practices make response compression reliable and maintainable?",
+      "document_id": "performance-008"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around async task status endpoint; help me reason about it.",
+      "document_id": "performance-009"
+    },
+    {
+      "query": "Which practices make asynchronous processing reliable and maintainable?",
+      "document_id": "performance-009"
+    },
+    {
+      "query": "A production system is behaving unexpectedly around capacity headroom; help me reason about it.",
+      "document_id": "performance-010"
+    },
+    {
+      "query": "Which practices make capacity planning reliable and maintainable?",
+      "document_id": "performance-010"
+    }
+  ]
+}
